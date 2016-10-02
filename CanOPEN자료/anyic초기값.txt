@@ -1,0 +1,108 @@
+ ----------------------------------------------
+ Anybus-IC - Parameters
+ ----------------------------------------------
+ 1 - Module Mode      1
+ 2 - Module Status    0x0003
+ 3 - Module Type      0x0301
+ 4 - Fieldbus Type    0x0020
+ 7 - LED State        0x0110
+ 8 - Config Bits      0x003F
+ 9 - Switch Coding    1
+ 10 - Offline Action   0
+ 11 - Idle Action      0
+ 12 - Interrupt Cfg    0x0001
+ 13 - Interrupt Cause  0x0000
+ 14 - SCI Rate Cfg     0
+ 15 - SCI Rate Act     3
+ 16 - SCI Settings Cfg 0x00
+ 17 - SCI Settings Act 0x00
+ 18 - MIF Rate Cfg     4
+ 19 - MIF Rate Act     4
+ 20 - MIF Settings Cfg 0x00
+      -- More --
+ ----------------------------------------------
+>             
+
+----------------------------------------------
+ Anybus-IC - Parameters
+ ----------------------------------------------
+ 21 - MIF Settings Act 0x00
+ 22 - Modbus RTU Addr  1
+ 23 - Modbus CRC Dsbl  0
+ 27 - FB Fault Values
+ ----------------------------------------------
+>  
+
+
+ ----------------------------------------------
+ Anybus-IC - Parameters
+ ----------------------------------------------
+ 40 - FB Byte Order    0
+ 41 - FB Out Cfg       8
+ 42 - FB Out Actual    8
+ 43 - FB In Actual     8
+ 44 - FB In SSC Offs   0 Byte
+ 45 - FB In SSC Size   0 Byte
+ 46 - FB In SCI Offs   0 Byte
+ 47 - FB In SCI Size   8 Byte
+ ----------------------------------------------
+>
+  ----------------------------------------------
+ Anybus-IC - Parameters
+ ----------------------------------------------
+ 50 - SSC Byte Order   0
+ 51 - SSC In Cfg       0 Byte
+ 52 - SSC In Auto      0 Byte
+ 53 - SSC In Actual    0 Byte
+ 54 - SSC Out Cfg      0 Byte
+ 55 - SSC Out Auto     0 Byte
+ 56 - SSC Out Actual   0 Byte
+ 57 - SSC Out FB Offs  0 Byte
+ 58 - SSC Out FB Size  0 Byte
+ 59 - SSC Out SCI Offs 0 Byte
+ 60 - SSC Out SCI Size 0 Byte
+ ----------------------------------------------
+>
+ 
+  ----------------------------------------------
+ Anybus-IC - Parameters
+ ----------------------------------------------
+ 63 - SCI Byte Order   0
+ 64 - SCI In Cfg       8 Byte
+ 65 - SCI In Actual    8 Byte
+ 66 - SCI Out Actual   8 Byte
+ 67 - SCI Out FB Offs  0 Byte
+ 68 - SCI Out FB Size  8 Byte
+ 69 - SCI Out SSC Offs 0 Byte
+ 70 - SCI Out SSC Size 0 Byte
+ ----------------------------------------------
+>    
+ ----------------------------------------------
+ Anybus-IC - Parameters
+ ----------------------------------------------
+ 100 - FB Bus Status    0x01
+ 101 - FB Module Status 0x04
+ 102 - FB Password
+ 103 - FB Node Adr Cfg  1
+ 104 - FB SSC Node Adr  0
+ 105 - FB Node Adr Act  1
+ 106 - FB Baud Rate Cfg 0x05
+ 107 - FB Baud Rate Act 0x05
+ 108 - FB Vendor ID     0x00BFFE3E
+ 109 - FB Product Code  0x00BFFE3E
+ 110 - FB Product Name
+ 111 - FB Revision      189.0
+ 112 - FB Status Bits   0x00
+ 113 - FB Cfg Bits      0x00
+ 114 - FB Restore Param
+ 115 - Error Messages
+ 116 - FB Init          0x00
+ 117 - FB Serial Number 0x00BFFE3E
+ 118 - FB Emcy Code
+ ----------------------------------------------
+>   
+
+ 
+                      
+
+         

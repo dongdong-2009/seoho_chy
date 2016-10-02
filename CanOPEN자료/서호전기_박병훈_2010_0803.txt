@@ -1,0 +1,51 @@
+답변이 많이 늦었습니다.
+ 
+소스를 잘 분석하신것 같은데
+사용하시는 방법대로 하시면 문제 없을것인데 
+0x01, 0x86, 0x02, 0xC3, 0xA1 로 응답이 왔다는것은 Error가 발생했다는 것입니다.
+특별한 순서는 없고 
+
+ABIC_AutoBaud( void ) -> ABIC_NormalMode( void ) -> ABIC_ReadOutData, ABIC_WriteInData
+위의 순서대로 하시면 되는데
+다만 보내는 패킷 마다 3.5캐릭터 만큼의 대기 시간이 있어야 합니다.
+패킷 사이사이에 delay를 조금 더 주어보십시오.
+ 
+비아 김종길 팀장
+ 
+ 
+ 
+----- Original Message ----- 
+From: 박병훈 
+To: yhkim@biasystem.co.kr 
+Sent: Monday, July 26, 2010 12:25 PM
+Subject: 서호전기 박병훈입니다..
+
+
+바쁘신데 죄송합니다..
+ 
+현재 IC받아서 샘플소스를 포팅해보고 있는데요
+ 
+소스를 보내 3가지 단계로 구성되어있더군요
+ 
+ABIC_AutoBaud( void ) -> ABIC_NormalMode( void ) -> ABIC_ReadOutData, ABIC_WriteInData
+ 
+1번째 함수는 정상적으로 응답을 보였습니다
+ 
+2번째 함수에 대하여는
+-> 0x01, 0x06, 0x50, 0x01, 0x00, 0x01  이런 패킷에
+
+<-  0x01, 0x86, 0x02, 0xC3, 0xA1        이러한 응답이 나왔습니다
+
+ 
+
+ 
+
+anybus-ic 핀에서 파형을 잡은거니깐 실제로 이렇게 나온다고 생각되고요~
+
+ 
+
+이왕 답주시는거 초기화 방법 좀 자세히 알려주시면 감사하겠습니다..
+
+방문도 괜찮으시다면 제가 방문했으면 좋겠는데요
+
+ 
