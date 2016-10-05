@@ -421,14 +421,14 @@ void main(void)
 	
 	// Call Flash Initialization to setup flash waitstates
 	// This function must reside in RAM
-	//InitFlash();
+	InitFlash();
 	//-----------------------------------------------------------------------------
 	
 	// Step 4. Initialize the Device Peripheral.
 	// refer to DSK2833x_GlobalFunc.c file and
 	Init_Ext_Bus();		// Initalize External Interface according to RealSYS DSP28335 DSK
-	//Set_LED_Data(0xff);	// Turn off all LEDs(CS0에 할당된 Digital Output 포트에 연결된 LED)
-	//init_lcd();			// Initialize LCD and Clear Display
+	Set_LED_Data(0xff);	// Turn off all LEDs(CS0에 할당된 Digital Output 포트에 연결된 LED)
+	init_lcd();			// Initialize LCD and Clear Display
 
 	// This function can be found in DSP2833x_CpuTimers.c
 	// For this example, only initialize the Cpu Timers
@@ -465,22 +465,22 @@ void main(void)
 	Init_External_Interrupt();
 	
 	// Initialize I2C for access serial eeprom(AT24C16)
-	//Init_I2C_eeprom();
+	Init_I2C_eeprom();
 	
 	// Initailze SPI-A for 2ch 12bit DAC(MCP4822)
-	//Init_Spi_Dac();
+	Init_Spi_Dac();
 	
 	// Initialize ADC operation mode
-	//Init_Adc_Mode();
+	Init_Adc_Mode();
 	
 	// Initialize SCI-B for echo-back testing
 	scib_init();
 	
 	// Initialize SCI-C for usb echo-back testing
-	//scic_usb_init();
+	scic_usb_init();
 
 	// Initialize CAN-A/B
-	//init_can();
+	init_can();
 	
 	// Enables the PIE module and CPU interrupts and global Interrupt INTM
 	// refer to DSP2833x_PieCtrl.c file
@@ -504,19 +504,14 @@ while(1)
 abInData[0]=0x00;
 abInData[1]=0x00;
 
-ABIC_ReadOutData( 0, 1, abInData );
-ABIC_WriteInData( 0, 1, abInData );
+	ABIC_ReadOutData( 0, 1, abInData );
 
-ABIC_ReadOutData( 1, 1, abInData );
-ABIC_WriteInData( 1, 1, abInData );
 
-ABIC_ReadOutData( 2, 1, abInData );
-ABIC_WriteInData( 2, 1, abInData );
+	ABIC_WriteInData( 0, 1, abInData );
 
-ABIC_ReadOutData( 3, 1, abInData );
-ABIC_WriteInData( 3, 1, abInData );
-	//step++;
-	//if(3<step)step=0;
+	
+	step++;
+	if(3<step)step=0;
 
 
 #if 0	

@@ -62,6 +62,7 @@
 #include "abic.h"
 #include "mb.h"
 
+
 extern void scib_putc(char d);
 
 /*******************************************************************************
@@ -116,12 +117,12 @@ BOOL TM_TimeOut()
 ** MB_SendModbusMessage()
 **------------------------------------------------------------------------------
 */
-UINT16 iCrc;
+
 UCHAR MB_SendRecModbusMessage( UCHAR* pbData, UCHAR bSize, UCHAR* pbResponse )
 {
 
    UCHAR abSendBuffer[ 30 ]={0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0};
-   
+   UINT16 iCrc;
    UCHAR bCharPos = 0;
 
 
@@ -172,8 +173,11 @@ UCHAR MB_SendRecModbusMessage( UCHAR* pbData, UCHAR bSize, UCHAR* pbResponse )
    }/* end for */
 #endif
 
+
+
    TM_StartTimer();
    while( !TM_TimeOut() );
+
 
    /*
    ** Read response
@@ -231,11 +235,12 @@ UCHAR MB_SendRecModbusMessage( UCHAR* pbData, UCHAR bSize, UCHAR* pbResponse )
       }
       else
       {
- return( bCharPos - 2 );
+
 
          /*
          ** CRC error
          */
+
          MB_bCRCCounter++;
 
       }/* end if right crc */

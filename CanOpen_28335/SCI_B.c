@@ -19,8 +19,6 @@
 
 #include "DSK2833x_Define.h"
 
-#include ".\anybus_ic\mb.h"
-
 // 제공된 예제에서는 인터럽트 서비스 루틴을 "ramfuncs" 이라는 섹션에 할당하고
 // "ramfuncs" 섹션은 빠른 응답 처리를 위해 내부 RAM에서 동작하도록 함
 
@@ -46,7 +44,7 @@ interrupt void scib_rx_isr(void);
 * 115200	150000000	37500000	39.69010417	40 		114329.268 	-0.756 
 ******************************************************************************/
 
-#define	SCIB_BUF_SIZE	20
+#define	SCIB_BUF_SIZE	50
 
 #define	SCIB_TX_START	{	if(ScibRegs.SCICTL2.bit.TXRDY){						\
 								ScibRegs.SCICTL2.bit.TXINTENA=1;				\
@@ -58,6 +56,23 @@ interrupt void scib_rx_isr(void);
 
 #define	SCIB_TX_STOP	ScibRegs.SCICTL2.bit.TXINTENA=0
 
+#define SD_RX_BUFFER_SIZE     10
+
+
+typedef struct sd_DataType
+{
+
+   BOOL fEnabled;
+   UINT8 abRxBuffer[ SD_RX_BUFFER_SIZE ];
+   UINT16 iRxGet;
+   UINT16 iRxPut;
+   UINT16 iRxSize;
+   UINT16 iTxGet;
+
+   UINT16 iTxSize;
+
+}
+sd_DataType;
 
 /*******************************************************************************
 **
@@ -66,9 +81,12 @@ interrupt void scib_rx_isr(void);
 ********************************************************************************
 */
 
+sd_DataType sd_s;
+
+
 unsigned int tttt=0;
 
-sd_DataType sd_s;
+
 // SCI-B의 송신 처리를 위한 버퍼 관련 변수
 BYTE scib_tx_buf[SCIB_BUF_SIZE+1];
 BYTE scib_tx_pos=0, scib_tx_end=0;
@@ -114,6 +132,7 @@ UCHAR SD_GetChar( void )
    }/* end if */
 
    bReturnChar = sd_s.abRxBuffer[ sd_s.iRxGet ];
+
 
    /*
    ** Take a step so we point to the next character in the rx buffer, then
@@ -185,13 +204,12 @@ interrupt void scib_tx_isr(void){
 	PieCtrlRegs.PIEACK.all = PIEACK_GROUP9;
 }
 
-BYTE scib_rx_buf[SCIB_BUF_SIZE+1];
+
 interrupt void scib_rx_isr(void){
 
    sd_s.abRxBuffer[ sd_s.iRxPut ] = ScibRegs.SCIRXBUF.all;
-//   scib_rx_buf[ sd_s.iRxPut ] = ScibRegs.SCIRXBUF.all;
 
-//	tttt = ScibRegs.SCIRXBUF.all;
+	//tttt = ScibRegs.SCIRXBUF.all;
 
    /*
    ** go to the next possition in the rx buffer
@@ -199,6 +217,7 @@ interrupt void scib_rx_isr(void){
 
    sd_s.iRxSize++;
    sd_s.iRxPut++;
+
    /*
    ** Handle the rotation of our ring buffer
    */
@@ -216,7 +235,8 @@ interrupt void scib_rx_isr(void){
 }
 
 // SCI-B 초기화 함수
-void scib_init(){
+void scib_init(void)
+{
 	ScibRegs.SCIFFTX.all = 0x8000;			// FIFO reset
  	ScibRegs.SCIFFCT.all = 0x4000;			// Clear ABD(Auto baud bit)
  	
@@ -229,29 +249,16 @@ void scib_init(){
 	ScibRegs.SCICTL2.bit.RXBKINTENA = 1;	// RX/BK INT ENA=1,
 	ScibRegs.SCICTL2.bit.TXINTENA = 1;		// TX INT ENA=1,
 
-    ScibRegs.SCIHBAUD = SCIB_BRR_VAL >> 8;
-    ScibRegs.SCILBAUD = SCIB_BRR_VAL & 0xff;
+  	ScibRegs.SCIHBAUD = SCIB_BRR_VAL >> 8;
+  	ScibRegs.SCILBAUD = SCIB_BRR_VAL & 0xff;
 
 	ScibRegs.SCICTL1.all = 0x0023;			// Relinquish SCI from Reset  
     
 	// Initialize SCI-B RX interrupt
-    EALLOW;
+  	EALLOW;
 	PieVectTable.SCIRXINTB = &scib_rx_isr;
-	PieVectTable.SCITXINTB = &scib_tx_isr;
-   #if 0
-    /* Enable internal pull-up for the selected pins */
-	GpioCtrlRegs.GPAPUD.bit.GPIO11 = 0; // Enable pull-up for GPIO11 (SCIRXDB)
-	GpioCtrlRegs.GPAPUD.bit.GPIO9 = 0;  // Enable pull-up for GPIO9  (SCITXDB)
+  	PieVectTable.SCITXINTB = &scib_tx_isr;
 
-	/* Set qualification for selected pins to asynch only */
-	GpioCtrlRegs.GPAQSEL1.bit.GPIO11 = 3;  // Asynch input GPIO11 (SCIRXDB)
-
-	/* Configure SCI-B pins using GPIO regs*/
-	GpioCtrlRegs.GPAMUX1.bit.GPIO11 = 2;   // Configure GPIO11 for SCIRXDB operation
-	GpioCtrlRegs.GPAMUX1.bit.GPIO9 = 2;    // Configure GPIO9 for SCITXDB operation
-#endif
-//========================================================================================
-//========================================================================================
     /* Enable internal pull-up for the selected pins */
 	GpioCtrlRegs.GPAPUD.bit.GPIO19 = 0; // Enable pull-up for GPIO19 (SCIRXDB)
 	GpioCtrlRegs.GPAPUD.bit.GPIO18 = 0;  // Enable pull-up for GPIO18  (SCITXDB)
@@ -262,27 +269,16 @@ void scib_init(){
 	/* Configure SCI-B pins using GPIO regs*/
 	GpioCtrlRegs.GPAMUX2.bit.GPIO19 = 2;   // Configure GPIO19 for SCIRXDB operation
 	GpioCtrlRegs.GPAMUX2.bit.GPIO18 = 2;    // Configure GPIO18 for SCITXDB operation
-	EDIS;
-//========================================================================================
-//========================================================================================
-	
-	//EDIS;
 
-    // Enable CPU INT9 for SCI-B
+	
+	EDIS;
+
+  // Enable CPU INT9 for SCI-B
 	IER |= M_INT9;
 	
-    // Enable SCI-B RX INT in the PIE: Group 9 interrupt 3
+  // Enable SCI-B RX INT in the PIE: Group 9 interrupt 3
 	PieCtrlRegs.PIEIER9.bit.INTx3 = 1;
 
-    // Enable SCI-B TX INT in the PIE: Group 9 interrupt 4
+  // Enable SCI-B TX INT in the PIE: Group 9 interrupt 4
 	PieCtrlRegs.PIEIER9.bit.INTx4 = 1;
-
-
-
-
-	sd_s.iRxGet = 0;
-	sd_s.iRxPut = 0; 
-	sd_s.iRxSize = 0;
-	sd_s.iTxGet = 0;
-	sd_s.iTxSize = 0;
 }

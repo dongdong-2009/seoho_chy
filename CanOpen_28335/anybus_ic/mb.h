@@ -146,25 +146,6 @@ extern UINT8 MB_bTimeOutCounter;
 extern UINT16 MB_iTimeOutTime;
 extern UINT16 TM_iTimeOutTime;
 
-#define SD_RX_BUFFER_SIZE     20
-
-typedef struct sd_DataType
-{
-
-   BOOL fEnabled;
-   UINT8 abRxBuffer[ SD_RX_BUFFER_SIZE ];
-   UINT16 iRxGet;
-   UINT16 iRxPut;
-   UINT16 iRxSize;
-   UINT16 iTxGet;
-
-   UINT16 iTxSize;
-
-}
-sd_DataType;
-
-extern sd_DataType sd_s;
-
 void MB_SetTimeout( UINT16 iTime );
 UCHAR MB_SendRecModbusMessage( UCHAR* pbData, UCHAR bSize, UCHAR* pbResponse );
 
