@@ -113,7 +113,7 @@ void MB_SetTimeout( UINT16 iTime )
 UCHAR MB_SendRecModbusMessage( UCHAR* pbData, UCHAR bSize, UCHAR* pbResponse )
 {
 
-   UCHAR abSendBuffer[ 30 ];
+   UCHAR abSendBuffer[ 30 ]={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
    UINT16 iCrc;
    UCHAR bCharPos = 0;
 
@@ -165,7 +165,7 @@ UCHAR MB_SendRecModbusMessage( UCHAR* pbData, UCHAR bSize, UCHAR* pbResponse )
    }/* end for */
 
 
-   TM_SetTimer( MB_iTimeOutTime );
+   //TM_SetTimer( MB_iTimeOutTime );
    TM_StartTimer();
 
 
@@ -173,11 +173,21 @@ UCHAR MB_SendRecModbusMessage( UCHAR* pbData, UCHAR bSize, UCHAR* pbResponse )
    ** Wait for repsonse to arrive or timeout
    */
 
-   while( !TM_TimeOut() )
-   ;
+   while( !TM_TimeOut() );
 
 
-   TM_StopTimer();
+  TM_StartTimer();
+   while( !TM_TimeOut() );
+
+    TM_StartTimer();
+   while( !TM_TimeOut() );
+
+    TM_StartTimer();
+   while( !TM_TimeOut() );
+
+
+
+   //TM_StopTimer();
 
    /*
    ** Read response

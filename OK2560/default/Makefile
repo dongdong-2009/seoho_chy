@@ -37,7 +37,7 @@ HEX_EEPROM_FLAGS += --change-section-lma .eeprom=0 --no-change-warnings
 
 
 ## Include Directories
-INCLUDES = -I"D:\work\SEOHO_VD\OK2560(080617)\AnybusIC" -I"D:\work\SEOHO_VD\OK2560(080617)\source" -I"D:\work\SEOHO_VD\OK2560(080617)\." 
+INCLUDES = -I"D:\work\SEOHO_VD\OK2560(080724)\AnybusIC" -I"D:\work\SEOHO_VD\OK2560(080724)\source" -I"D:\work\SEOHO_VD\OK2560(080724)\." 
 
 ## Objects that must be built in order to link
 OBJECTS = main.o 128by64GLCD.o 16by2CLCD.o serial.o key.o abic.o crc.o mb.o sd.o tm.o 

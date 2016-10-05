@@ -1,4 +1,4 @@
-crc.o: ../AnybusIC/crc.c D:\work\SEOHO_VD\OK2560(080617)\source/include.h \
+crc.o: ../AnybusIC/crc.c D:\work\SEOHO_VD\OK2560(080724)\source/include.h \
   c:/winavr/bin/../avr/include/avr/io.h \
   c:/winavr/bin/../avr/include/avr/sfr_defs.h \
   c:/winavr/bin/../avr/include/inttypes.h \
@@ -12,18 +12,18 @@ crc.o: ../AnybusIC/crc.c D:\work\SEOHO_VD\OK2560(080617)\source/include.h \
   c:\winavr\bin\../lib/gcc/avr/4.1.1/include/stdarg.h \
   c:\winavr\bin\../lib/gcc/avr/4.1.1/include/stddef.h \
   c:/winavr/bin/../avr/include/avr/interrupt.h \
-  D:\work\SEOHO_VD\OK2560(080617)\source/util.h \
-  D:\work\SEOHO_VD\OK2560(080617)\source/type.h \
-  D:\work\SEOHO_VD\OK2560(080617)\source/128by64GLCD.h \
+  D:\work\SEOHO_VD\OK2560(080724)\source/util.h \
+  D:\work\SEOHO_VD\OK2560(080724)\source/type.h \
+  D:\work\SEOHO_VD\OK2560(080724)\source/128by64GLCD.h \
   c:/winavr/bin/../avr/include/avr/pgmspace.h \
-  D:\work\SEOHO_VD\OK2560(080617)\source/16by2CLCD.h \
-  D:\work\SEOHO_VD\OK2560(080617)\source/key.h \
-  D:\work\SEOHO_VD\OK2560(080617)\AnybusIC/fd.h \
-  D:\work\SEOHO_VD\OK2560(080617)\AnybusIC/tm.h \
-  D:\work\SEOHO_VD\OK2560(080617)\AnybusIC/sd.h \
-  D:\work\SEOHO_VD\OK2560(080617)\AnybusIC/abic.h ../AnybusIC/crc.h
+  D:\work\SEOHO_VD\OK2560(080724)\source/16by2CLCD.h \
+  D:\work\SEOHO_VD\OK2560(080724)\source/key.h \
+  D:\work\SEOHO_VD\OK2560(080724)\AnybusIC/fd.h \
+  D:\work\SEOHO_VD\OK2560(080724)\AnybusIC/tm.h \
+  D:\work\SEOHO_VD\OK2560(080724)\AnybusIC/sd.h \
+  D:\work\SEOHO_VD\OK2560(080724)\AnybusIC/abic.h ../AnybusIC/crc.h
 
-D:\work\SEOHO_VD\OK2560(080617)\source/include.h:
+D:\work\SEOHO_VD\OK2560(080724)\source/include.h:
 
 c:/winavr/bin/../avr/include/avr/io.h:
 
@@ -51,24 +51,24 @@ c:\winavr\bin\../lib/gcc/avr/4.1.1/include/stddef.h:
 
 c:/winavr/bin/../avr/include/avr/interrupt.h:
 
-D:\work\SEOHO_VD\OK2560(080617)\source/util.h:
+D:\work\SEOHO_VD\OK2560(080724)\source/util.h:
 
-D:\work\SEOHO_VD\OK2560(080617)\source/type.h:
+D:\work\SEOHO_VD\OK2560(080724)\source/type.h:
 
-D:\work\SEOHO_VD\OK2560(080617)\source/128by64GLCD.h:
+D:\work\SEOHO_VD\OK2560(080724)\source/128by64GLCD.h:
 
 c:/winavr/bin/../avr/include/avr/pgmspace.h:
 
-D:\work\SEOHO_VD\OK2560(080617)\source/16by2CLCD.h:
+D:\work\SEOHO_VD\OK2560(080724)\source/16by2CLCD.h:
 
-D:\work\SEOHO_VD\OK2560(080617)\source/key.h:
+D:\work\SEOHO_VD\OK2560(080724)\source/key.h:
 
-D:\work\SEOHO_VD\OK2560(080617)\AnybusIC/fd.h:
+D:\work\SEOHO_VD\OK2560(080724)\AnybusIC/fd.h:
 
-D:\work\SEOHO_VD\OK2560(080617)\AnybusIC/tm.h:
+D:\work\SEOHO_VD\OK2560(080724)\AnybusIC/tm.h:
 
-D:\work\SEOHO_VD\OK2560(080617)\AnybusIC/sd.h:
+D:\work\SEOHO_VD\OK2560(080724)\AnybusIC/sd.h:
 
-D:\work\SEOHO_VD\OK2560(080617)\AnybusIC/abic.h:
+D:\work\SEOHO_VD\OK2560(080724)\AnybusIC/abic.h:
 
 ../AnybusIC/crc.h:

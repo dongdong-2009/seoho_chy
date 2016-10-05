@@ -90,6 +90,7 @@ int main(void)
 
    /*
    ** Make the AnyBus-IC autodetect our Baud Rate
+
    */
    fResult = ABIC_AutoBaud();
 
@@ -119,6 +120,12 @@ int main(void)
    ** the module in Normal Operational mode.
    */
 
+_delay_ms(500);
+_delay_ms(500);
+_delay_ms(500);
+_delay_ms(500);
+
+#if 1
    if( ABIC_NormalMode() )
    {
 
@@ -133,94 +140,94 @@ int main(void)
       ;
 
    }/* end if */
+#endif
 
+_delay_ms(500);
+_delay_ms(500);
+_delay_ms(500);
+_delay_ms(500);
 
    while( 1 )
    {
 
-      /*
-      ** Get indata values from the CPU AD converter
-      */
-      abInData[ 0 ] = 0xAB;
-      abInData[ 1 ] = 0xCD;
+
+	KeyProc();
+
+	if(KeyPara.KeyValue != 0xFF)
+	{
+	//	_delay_ms(500);
+		SD_PutChar(KeyPara.KeyValue);
+		CLCD_command(0xC0);
+		if((KeyPara.KeyValue>>4)<=9)CLCD_data((KeyPara.KeyValue>>4)+'0');
+		else CLCD_data((KeyPara.KeyValue>>4)-10+'A');
+		
+		CLCD_command(0xC1);
+		if((KeyPara.KeyValue & 0x0F)<=9)CLCD_data((KeyPara.KeyValue & 0x0F)+'0');
+		else CLCD_data((KeyPara.KeyValue & 0x0F)-10+'A');
 
 
-      /*
-      ** Write the In Data values to the AnyBus-IC
-      */
-      ABIC_WriteInData( 0, 1, abInData );
+	      /*
+	      ** Get indata values from the CPU AD converter
+	      */
+	      abInData[ 0 ] = 0xAB;
+	      abInData[ 1 ] = 0xCD;
+
+	      /*
+	      ** Write the In Data values to the AnyBus-IC
+	      */
+	      ABIC_WriteInData( 0, 1, abInData );
+
+		_delay_ms(500);
+
+
+	      /*
+	      ** Read the Out Data values from the AnyBus-IC
+	      */
+	      fResult = ABIC_ReadOutData( 0, 1, abOutData );
+
+	      if( fResult )
+	      {
+
+	         /*
+	         ** Print the Out Data values on the display
+	         */
+
+				CLCD_command(0xC0);
+				if((abOutData[ 0 ]>>4)<=9)CLCD_data((abOutData[ 0 ]>>4)+'0');
+				else CLCD_data((abOutData[ 0 ]>>4)-10+'A');
+				
+				CLCD_command(0xC1);
+				if((abOutData[ 0 ] & 0x0F)<=9)CLCD_data((abOutData[ 0 ] & 0x0F)+'0');
+				else CLCD_data((abOutData[ 0 ] & 0x0F)-10+'A');
+
+				CLCD_command(0xC2);
+				if((abOutData[ 1 ]>>4)<=9)CLCD_data((abOutData[ 1 ]>>4)+'0');
+				else CLCD_data((abOutData[ 1 ]>>4)-10+'A');
+				
+				CLCD_command(0xC3);
+				if((abOutData[ 1 ] & 0x0F)<=9)CLCD_data((abOutData[ 1 ] & 0x0F)+'0');
+				else CLCD_data((abOutData[ 1 ] & 0x0F)-10+'A');
+
+			 
+
+	      }
+	   //   else
+	    //  {
+
+	      //   /*
+	       //  ** We could not get correct Out Data
+	        // */
+	        // CLCD_string( 0xC0,"----");
+
+	      //}/* end if */
 
 
 
-      /*
-      ** Read the Out Data values from the AnyBus-IC
-      */
-      fResult = ABIC_ReadOutData( 0, 1, abOutData );
+		
+	}
 
-      if( fResult )
-      {
-
-         /*
-         ** Print the Out Data values on the display
-         */
-
-			CLCD_command(0xC0);
-			if((abOutData[ 0 ]>>4)<=9)CLCD_data((abOutData[ 0 ]>>4)+'0');
-			else CLCD_data((abOutData[ 0 ]>>4)-10+'A');
-			
-			CLCD_command(0xC1);
-			if((abOutData[ 0 ] & 0x0F)<=9)CLCD_data((abOutData[ 0 ] & 0x0F)+'0');
-			else CLCD_data((abOutData[ 0 ] & 0x0F)-10+'A');
-
-			CLCD_command(0xC2);
-			if((abOutData[ 1 ]>>4)<=9)CLCD_data((abOutData[ 1 ]>>4)+'0');
-			else CLCD_data((abOutData[ 1 ]>>4)-10+'A');
-			
-			CLCD_command(0xC3);
-			if((abOutData[ 1 ] & 0x0F)<=9)CLCD_data((abOutData[ 1 ] & 0x0F)+'0');
-			else CLCD_data((abOutData[ 1 ] & 0x0F)-10+'A');
-
-		 
-
-      }
-   //   else
-    //  {
-
-      //   /*
-       //  ** We could not get correct Out Data
-        // */
-        // CLCD_string( 0xC0,"----");
-
-      //}/* end if */
-
-
-_delay_ms(500);
-_delay_ms(500);
-_delay_ms(500);
-_delay_ms(500);
 
    }/* end main loop */
 
 
-
-/*
-	while(1)
-	{
-		KeyProc();
-
-		if(KeyPara.KeyValue != 0xFF)
-		{
-		//	_delay_ms(500);
-			SD_PutChar(KeyPara.KeyValue);
-			CLCD_command(0xC0);
-			if((KeyPara.KeyValue>>4)<=9)CLCD_data((KeyPara.KeyValue>>4)+'0');
-			else CLCD_data((KeyPara.KeyValue>>4)-10+'A');
-			
-			CLCD_command(0xC1);
-			if((KeyPara.KeyValue & 0x0F)<=9)CLCD_data((KeyPara.KeyValue & 0x0F)+'0');
-			else CLCD_data((KeyPara.KeyValue & 0x0F)-10+'A');
-		}
-
-	}
-*/
 }

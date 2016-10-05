@@ -64,17 +64,22 @@
 ********************************************************************************
 */
 
+	UCHAR abCheckRequest[ 6 ] = { 0x01, 0x04, 0x50, 0x01, 0x00, 0x01 } ;
+	UCHAR abResponse[ 10 ] = { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00} ;
+	UCHAR abRequest[ 11] = { 0x01, 0x03, 0x50, 0x01, 0x00, 0x01,0,0,0,0,0 } ;
+	UCHAR abSetRequest[ 6 ] = { 0x01, 0x06, 0x50, 0x01, 0x00, 0x01 } ;
+
 
 /*------------------------------------------------------------------------------
 ** ABIC_AutoBaud()
 **------------------------------------------------------------------------------
 */
 
-UCHAR ABIC_AutoBaud( void )
+UCHAR  ABIC_AutoBaud( void )
 {
- UCHAR abResponse[ 10 ] = { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00} ;
+ 
   
-   UCHAR abRequest[ 6 ] = { 0x01, 0x03, 0x50, 0x01, 0x00, 0x01 } ;
+   
    UCHAR bRetryCount;
 
    /*
@@ -117,9 +122,8 @@ UCHAR ABIC_AutoBaud( void )
 BOOL ABIC_NormalMode( void )
 {
 
-    UCHAR abResponse[ 10 ] = { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00} ;
-   UCHAR abSetRequest[ 6 ] = { 0x01, 0x06, 0x50, 0x01, 0x00, 0x01 } ;
-   UCHAR abCheckRequest[ 6 ] = { 0x01, 0x04, 0x50, 0x01, 0x00, 0x01 } ;
+
+
 
 
    /*
@@ -132,7 +136,6 @@ BOOL ABIC_NormalMode( void )
       return( FALSE );
 
    }/* end if */
-
 
    /*
    ** Check if the AnyBus-IC is in Normal mode.
@@ -177,8 +180,8 @@ BOOL ABIC_ReadOutData( UCHAR bOffset, UCHAR bSize, UCHAR* pData )
 
    UCHAR bCount;
    UCHAR bReadSize;
-   UCHAR abRequest[ 6 ];
-   UCHAR abResponse[ 10 ];
+ //  UCHAR abRequest[ 6 ];
+
 
    /*
    ** Set up Read Input registers request
@@ -188,6 +191,8 @@ BOOL ABIC_ReadOutData( UCHAR bOffset, UCHAR bSize, UCHAR* pData )
    abRequest[ 1 ] = 0x04;           /* Modbus Function Code     */
    abRequest[ 2 ] = 0x10;           /* Modbus Address High Byte */
    abRequest[ 3 ] = bOffset;        /* Modbus Address Low Byte  */
+   //abRequest[ 2 ] = 0x50;           /* Modbus Address High Byte */
+   //abRequest[ 3 ] = 0x01;        /* Modbus Address Low Byte  */
    abRequest[ 4 ] = 0x00;           /* No. of Points High       */
    abRequest[ 5 ] = bSize;          /* No. of Points Low        */
 
@@ -233,8 +238,7 @@ BOOL ABIC_WriteInData( UCHAR bOffset, UCHAR bSize, UCHAR* pData )
 {
 
    UCHAR bCount;
-   UCHAR abRequest[ 11 ];
-   UCHAR abResponse[ 10 ];
+   //UCHAR abRequest[ 11 ];
 
    /*
    ** Set up Preset Multiple Registers request

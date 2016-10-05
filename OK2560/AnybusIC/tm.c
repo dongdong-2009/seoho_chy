@@ -105,64 +105,7 @@ void TM_StartTimer()
 }/* end TM_StartTimer */
 
 
-/*------------------------------------------------------------------------------
-** TM_SetTimer()
-**------------------------------------------------------------------------------
-*/
 
-void TM_SetTimer( UINT16 iTime )
-{
-
-   /*
-   ** If this is the first SetTimer since starttimer we should calculate
-   ** the response time.
-   */
-
-   if( TM_iResponseTime == 0 )
-   {
-
-      TM_iResponseTime = TCNT1;
-
-   }/* end if */
-
-   TM_iTimeOutTime = iTime;
-
-
-   /*
-   ** Set new timout time
-   */
-
-	OCR1A= iTime;//waiting
-
-   /*TH0=0xD8;    /* 10 ms: FFFF-D8EF=2710 (dec.10000) */
-   /*TL0=0xEF;*/
-
-
-
-}/* end TM_SetTimer */
-
-
-/*------------------------------------------------------------------------------
-** TM_SetTimer()
-**------------------------------------------------------------------------------
-*/
-
-void TM_StopTimer()
-{
-   if( TM_iResponseTime == 0 )
-   {
-
-      TM_iResponseTime = TCNT1;
-
-   }/* end if */
-
-}/* end TM_StopTimer */
-
-
-/*------------------------------------------------------------------------------
-** TM_TimeOut()
-**------------------------------------------------------------------------------
-*/
 
 BOOL TM_TimeOut()
 {

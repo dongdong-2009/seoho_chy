@@ -228,7 +228,7 @@ ISR(USART0_RX_vect)
    ** Set timeout to 3.5 char to know when a modbus message ends.
    */
 
-   TM_SetTimer( MB_MESSAGE_END_9600 );
+   TCNT1 = 0x0000;
 
 
 }/* end sd_RxInterrupt */
