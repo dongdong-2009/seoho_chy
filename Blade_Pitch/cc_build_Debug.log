@@ -1,8 +1,79 @@
 ---------------------  Seoho VD Drive Program.pjt - Debug  ---------------------
-[All_Main.c] "C:\CCStudio_v3.3\C2000\cgtools\bin\cl2000" -gt -pdsw225 -fr"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110413_canopen/Debug" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110413_canopen/lib" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110413_canopen/include/Seoho include" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110413_canopen/include/TI include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../../Debug.lkf" "All_Main.c"
+[abic.c] "C:\CCStudio_v3.3\C2000\cgtools\bin\cl2000" -gt -pdsw225 -fr"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/Debug" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/lib" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/include/Seoho include" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/include/TI include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../../Debug.lkf" "abic.c"
+
+[crc.c] "C:\CCStudio_v3.3\C2000\cgtools\bin\cl2000" -gt -pdsw225 -fr"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/Debug" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/lib" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/include/Seoho include" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/include/TI include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../../Debug.lkf" "crc.c"
+
+[mb.c] "C:\CCStudio_v3.3\C2000\cgtools\bin\cl2000" -gt -pdsw225 -fr"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/Debug" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/lib" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/include/Seoho include" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/include/TI include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../../Debug.lkf" "mb.c"
+
+[SCI_B.c] "C:\CCStudio_v3.3\C2000\cgtools\bin\cl2000" -gt -pdsw225 -fr"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/Debug" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/lib" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/include/Seoho include" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/include/TI include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../../Debug.lkf" "SCI_B.c"
+
+[All_Interrupt.c] "C:\CCStudio_v3.3\C2000\cgtools\bin\cl2000" -gt -pdsw225 -fr"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/Debug" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/lib" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/include/Seoho include" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/include/TI include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../../Debug.lkf" "All_Interrupt.c"
+"All_Interrupt.c", line 80: warning: variable "ms_cnt" was declared but never referenced
+"All_Interrupt.c", line 386: warning: variable "bdata1" was set but never used
+"All_Interrupt.c", line 386: warning: variable "ddata1" was set but never used
+"All_Interrupt.c", line 386: warning: variable "edata1" was set but never used
+"All_Interrupt.c", line 387: warning: variable "bdata2" was set but never used
+"All_Interrupt.c", line 387: warning: variable "ddata2" was set but never used
+"All_Interrupt.c", line 387: warning: variable "edata2" was set but never used
+"All_Interrupt.c", line 388: warning: variable "fdata1" was declared but never referenced
+"All_Interrupt.c", line 389: warning: variable "fdata2" was declared but never referenced
+
+[All_Main.c] "C:\CCStudio_v3.3\C2000\cgtools\bin\cl2000" -gt -pdsw225 -fr"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/Debug" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/lib" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/include/Seoho include" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/include/TI include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../../Debug.lkf" "All_Main.c"
+
+[Core_ADC_DAC.c] "C:\CCStudio_v3.3\C2000\cgtools\bin\cl2000" -gt -pdsw225 -fr"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/Debug" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/lib" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/include/Seoho include" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/include/TI include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../../Debug.lkf" "Core_ADC_DAC.c"
+
+[Core_Auto_Tuning.c] "C:\CCStudio_v3.3\C2000\cgtools\bin\cl2000" -gt -pdsw225 -fr"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/Debug" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/lib" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/include/Seoho include" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/include/TI include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../../Debug.lkf" "Core_Auto_Tuning.c"
+
+[Core_Common_Module.c] "C:\CCStudio_v3.3\C2000\cgtools\bin\cl2000" -gt -pdsw225 -fr"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/Debug" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/lib" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/include/Seoho include" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/include/TI include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../../Debug.lkf" "Core_Common_Module.c"
+
+[Core_Gpio_Xintf_Set.c] "C:\CCStudio_v3.3\C2000\cgtools\bin\cl2000" -gt -pdsw225 -fr"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/Debug" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/lib" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/include/Seoho include" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/include/TI include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../../Debug.lkf" "Core_Gpio_Xintf_Set.c"
+
+[Core_RealSys_2833x.c] "C:\CCStudio_v3.3\C2000\cgtools\bin\cl2000" -gt -pdsw225 -fr"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/Debug" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/lib" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/include/Seoho include" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/include/TI include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../../Debug.lkf" "Core_RealSys_2833x.c"
+
+[Core_Speed_Calc.c] "C:\CCStudio_v3.3\C2000\cgtools\bin\cl2000" -gt -pdsw225 -fr"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/Debug" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/lib" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/include/Seoho include" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/include/TI include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../../Debug.lkf" "Core_Speed_Calc.c"
+"Core_Speed_Calc.c", line 247: warning: variable "y" was declared but never referenced
+
+[Core_Vector_Control.c] "C:\CCStudio_v3.3\C2000\cgtools\bin\cl2000" -gt -pdsw225 -fr"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/Debug" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/lib" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/include/Seoho include" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/include/TI include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../../Debug.lkf" "Core_Vector_Control.c"
+
+[DEV_EasydspDac28335.c] "C:\CCStudio_v3.3\C2000\cgtools\bin\cl2000" -gt -pdsw225 -fr"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/Debug" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/lib" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/include/Seoho include" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/include/TI include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../../Debug.lkf" "DEV_EasydspDac28335.c"
+"DEV_EasydspDac28335.c", line 220: warning: variable "Temp" was set but never used
+
+[Seoho_DSP2833x_Xintf.c] "C:\CCStudio_v3.3\C2000\cgtools\bin\cl2000" -gt -pdsw225 -fr"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/Debug" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/lib" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/include/Seoho include" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/include/TI include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../../Debug.lkf" "Seoho_DSP2833x_Xintf.c"
+
+[Shell_ABS_Encoder.c] "C:\CCStudio_v3.3\C2000\cgtools\bin\cl2000" -gt -pdsw225 -fr"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/Debug" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/lib" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/include/Seoho include" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/include/TI include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../../Debug.lkf" "Shell_ABS_Encoder.c"
+
+[Shell_Fault_Processing.c] "C:\CCStudio_v3.3\C2000\cgtools\bin\cl2000" -gt -pdsw225 -fr"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/Debug" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/lib" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/include/Seoho include" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/include/TI include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../../Debug.lkf" "Shell_Fault_Processing.c"
+
+[Shell_IO.c] "C:\CCStudio_v3.3\C2000\cgtools\bin\cl2000" -gt -pdsw225 -fr"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/Debug" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/lib" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/include/Seoho include" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/include/TI include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../../Debug.lkf" "Shell_IO.c"
+
+[Shell_Ref_Func.c] "C:\CCStudio_v3.3\C2000\cgtools\bin\cl2000" -gt -pdsw225 -fr"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/Debug" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/lib" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/include/Seoho include" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/include/TI include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../../Debug.lkf" "Shell_Ref_Func.c"
+
+[Shell_State_Management.c] "C:\CCStudio_v3.3\C2000\cgtools\bin\cl2000" -gt -pdsw225 -fr"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/Debug" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/lib" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/include/Seoho include" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/include/TI include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../../Debug.lkf" "Shell_State_Management.c"
+
+[Core_DSP2833x_ADC_cal.asm] "C:\CCStudio_v3.3\C2000\cgtools\bin\cl2000" -gt -pdsw225 -fr"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/Debug" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/lib" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/include/Seoho include" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/include/TI include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../../Debug.lkf" "Core_DSP2833x_ADC_cal.asm"
+
+[Core_DSP2833x_CodeStartBranch.asm] "C:\CCStudio_v3.3\C2000\cgtools\bin\cl2000" -gt -pdsw225 -fr"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/Debug" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/lib" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/include/Seoho include" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/include/TI include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../../Debug.lkf" "Core_DSP2833x_CodeStartBranch.asm"
+
+[Core_DSP2833x_CpuTimers.c] "C:\CCStudio_v3.3\C2000\cgtools\bin\cl2000" -gt -pdsw225 -fr"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/Debug" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/lib" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/include/Seoho include" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/include/TI include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../../Debug.lkf" "Core_DSP2833x_CpuTimers.c"
+
+[Core_DSP2833x_DefaultIsr.c] "C:\CCStudio_v3.3\C2000\cgtools\bin\cl2000" -gt -pdsw225 -fr"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/Debug" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/lib" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/include/Seoho include" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/include/TI include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../../Debug.lkf" "Core_DSP2833x_DefaultIsr.c"
+
+[Core_DSP2833x_GlobalVariableDefs.c] "C:\CCStudio_v3.3\C2000\cgtools\bin\cl2000" -gt -pdsw225 -fr"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/Debug" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/lib" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/include/Seoho include" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/include/TI include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../../Debug.lkf" "Core_DSP2833x_GlobalVariableDefs.c"
+
+[Core_DSP2833x_MemCopy.c] "C:\CCStudio_v3.3\C2000\cgtools\bin\cl2000" -gt -pdsw225 -fr"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/Debug" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/lib" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/include/Seoho include" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/include/TI include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../../Debug.lkf" "Core_DSP2833x_MemCopy.c"
+
+[Core_DSP2833x_PieCtrl.c] "C:\CCStudio_v3.3\C2000\cgtools\bin\cl2000" -gt -pdsw225 -fr"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/Debug" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/lib" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/include/Seoho include" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/include/TI include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../../Debug.lkf" "Core_DSP2833x_PieCtrl.c"
+
+[Core_DSP2833x_PieVect.c] "C:\CCStudio_v3.3\C2000\cgtools\bin\cl2000" -gt -pdsw225 -fr"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/Debug" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/lib" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/include/Seoho include" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/include/TI include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../../Debug.lkf" "Core_DSP2833x_PieVect.c"
+
+[Core_DSP2833x_SysCtrl.c] "C:\CCStudio_v3.3\C2000\cgtools\bin\cl2000" -gt -pdsw225 -fr"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/Debug" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/lib" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/include/Seoho include" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/include/TI include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../../Debug.lkf" "Core_DSP2833x_SysCtrl.c"
+
+[Core_DSP2833x_usDelay.asm] "C:\CCStudio_v3.3\C2000\cgtools\bin\cl2000" -gt -pdsw225 -fr"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/Debug" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/lib" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/include/Seoho include" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/include/TI include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../../Debug.lkf" "Core_DSP2833x_usDelay.asm"
+
+[Shell_DSP2833x_Mcbsp.c] "C:\CCStudio_v3.3\C2000\cgtools\bin\cl2000" -gt -pdsw225 -fr"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/Debug" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/lib" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/include/Seoho include" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110415_canopen/include/TI include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../../Debug.lkf" "Shell_DSP2833x_Mcbsp.c"
 
 [Linking...] "C:\CCStudio_v3.3\C2000\cgtools\bin\cl2000" -@"Debug.lkf"
 <Linking>
 
 Build Complete,
-  0 Errors, 0 Warnings, 0 Remarks.
+  0 Errors, 11 Warnings, 0 Remarks.

@@ -245,7 +245,7 @@ void scib_init(){
 	ScibRegs.SCIFFTX.all = 0x8000;			// FIFO reset
  	ScibRegs.SCIFFCT.all = 0x4000;			// Clear ABD(Auto baud bit)
  	
- 	ScibRegs.SCICCR.all = 0x0007;  			// 1 stop bit,  No loopback 
+ 	ScibRegs.SCICCR.all = 0x0007;  		// 1 stop bit,  No loopback 
                                    			// No parity,8 char bits,
                                    			// async mode, idle-line protocol
 	ScibRegs.SCICTL1.all = 0x0003; 			// enable TX, RX, internal SCICLK, 

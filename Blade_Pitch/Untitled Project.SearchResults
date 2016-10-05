@@ -1,20 +1,4 @@
----- GPIO19 Matches (26 in 6 files) ----
-Core_DSP2833x_Gpio.h (include\ti include):   Uint16 GPIO19:2;           // 7:6    GPIO19
-Core_DSP2833x_Gpio.h (include\ti include):   Uint16 GPIO19:1;           // 19     GPIO19
-Core_Gpio_Xintf_Set.c (source\seoho source):   // GPIO19 RXD
-Core_Gpio_Xintf_Set.c (source\seoho source)://   GpioCtrlRegs.GPAPUD.bit.GPIO19 	= 1;  // Enable pullup on GPIO18     
-Core_Gpio_Xintf_Set.c (source\seoho source)://   GpioDataRegs.GPASET.bit.GPIO19 	= 1;  // Set Output High
-Core_Gpio_Xintf_Set.c (source\seoho source):   GpioCtrlRegs.GPAMUX2.bit.GPIO19 	= 2;  // GPIO19 = SCIRXDB
-Core_Gpio_Xintf_Set.c (source\seoho source):   GpioCtrlRegs.GPADIR.bit.GPIO19 	= 1;  // 
-SCI_B.c (source\anybus_ic):	GpioCtrlRegs.GPAPUD.bit.GPIO19 = 0; // Enable pull-up for GPIO19 (SCIRXDB)
-SCI_B.c (source\anybus_ic):	GpioCtrlRegs.GPAQSEL2.bit.GPIO19 = 3;  // Asynch input GPIO19 (SCIRXDB)
-SCI_B.c (source\anybus_ic):	GpioCtrlRegs.GPAMUX2.bit.GPIO19 = 2;   // Configure GPIO19 for SCIRXDB operation
-Shell_DSP2833x_ECan.c (source\ti source)://	GpioCtrlRegs.GPAPUD.bit.GPIO19 = 0;	    // Enable pull-up for GPIO19 (CANTXA)
-Shell_DSP2833x_ECan.c (source\ti source)://  GpioCtrlRegs.GPAMUX2.bit.GPIO19 = 3;	// Configure GPIO19 for CANTXA operation
-Shell_DSP2833x_Sci.c (source\ti source):    GpioCtrlRegs.GPAPUD.bit.GPIO19 = 0;	   // Enable pull-up for GPIO19 (SCIRXDB)
-Shell_DSP2833x_Sci.c (source\ti source):	GpioCtrlRegs.GPAQSEL2.bit.GPIO19 = 3;  // Asynch input GPIO19 (SCIRXDB)
-Shell_DSP2833x_Sci.c (source\ti source):    GpioCtrlRegs.GPAMUX2.bit.GPIO19 = 2;   // Configure GPIO19 for SCIRXDB operation
-Shell_DSP2833x_Spi.c (source\ti source):    GpioCtrlRegs.GPAPUD.bit.GPIO19 = 0;   // Enable pull-up on GPIO19 (SPISTEA)
-Shell_DSP2833x_Spi.c (source\ti source):    GpioCtrlRegs.GPAQSEL2.bit.GPIO19 = 3; // Asynch input GPIO19 (SPISTEA)
-Shell_DSP2833x_Spi.c (source\ti source)://    GpioCtrlRegs.GPBQSEL2.bit.GPIO57 = 3; // Asynch input GPIO19 (SPISTEA)
-Shell_DSP2833x_Spi.c (source\ti source):    GpioCtrlRegs.GPAMUX2.bit.GPIO19 = 1; // Configure GPIO19 as SPISTEA
+---- InitSpiGpio Matches (3 in 2 files) ----
+Core_DSP2833x_GlobalPrototypes.h (include\ti include):extern void InitSpiGpio(void);
+Shell_DSP2833x_Spi.c (source\ti source):// Example: InitSpiGpio: 
+Shell_DSP2833x_Spi.c (source\ti source):void InitSpiGpio()

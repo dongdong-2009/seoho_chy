@@ -36,14 +36,26 @@ void main( void )
 	DrivePower = CheckPowerVersion( );
 
 
-	ABIC_AutoBaud();
-	ABIC_NormalMode();
+	//ABIC_AutoBaud();
+	//ABIC_NormalMode();
 
 
 	// Infinity Loop
 
 	while(1)
 	{
+
+
+scib_putc(0xab);
+Nop();
+	Nop();
+
+	Nop();	Nop();	Nop();Nop();	Nop();Nop();
+	Nop();
+	Nop();	Nop();	Nop();	Nop();	Nop();	Nop();	Nop();	Nop();
+
+
+	#if 0
 		State_Management();
 //		Keypad_Serial_Communication();
 //		DSPtoMonitoring();
@@ -70,6 +82,8 @@ ABIC_WriteInData( 2, 1, abInData );
 //ABIC_ReadOutData( 3, 1, abInData );
 ABIC_WriteInData( 3, 1, abInData );
 
+
+#endif
 		Nop();
 	}
 
