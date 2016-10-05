@@ -73,7 +73,7 @@ int main(void)
 	GLCD_FullUpdate();
 
 
-	CLCD_string(0x80,"KEY -> serial   ");          // display title
+	CLCD_string(0x80,"KEY ->    ");          // display title
 	CLCD_string(0xC0,"                ");
 
 //	UART0_init();
@@ -88,27 +88,7 @@ int main(void)
    SD_Init();
   sei();// 수신인터럽트 enable
 
-   /*
-   ** Make the AnyBus-IC autodetect our Baud Rate
 
-   */
-   fResult = ABIC_AutoBaud();
-
-
-   if( !fResult )
-   {
-
-      /*
-      ** The baud rate auto detection failed.
-      ** Write error message and stay here for ever
-      */
-
-      CLCD_string(0xC0, "AutoBaud fault!");
-
-      while( 1 )
-      ;
-
-   }/* end if */
 
 
    /*
@@ -125,27 +105,6 @@ _delay_ms(500);
 _delay_ms(500);
 _delay_ms(500);
 
-#if 1
-   if( ABIC_NormalMode() )
-   {
-
-      /*
-      ** The baud rate auto detection failed.
-      ** Write error message and stay here for ever
-      */
-
-      CLCD_string(0xC0, "Set Mode Fault!");
-
-      while( 1 )
-      ;
-
-   }/* end if */
-#endif
-
-_delay_ms(500);
-_delay_ms(500);
-_delay_ms(500);
-_delay_ms(500);
 
    while( 1 )
    {
@@ -157,15 +116,71 @@ _delay_ms(500);
 	{
 	//	_delay_ms(500);
 		SD_PutChar(KeyPara.KeyValue);
-		CLCD_command(0xC0);
+		CLCD_command(0x87);
 		if((KeyPara.KeyValue>>4)<=9)CLCD_data((KeyPara.KeyValue>>4)+'0');
 		else CLCD_data((KeyPara.KeyValue>>4)-10+'A');
 		
-		CLCD_command(0xC1);
+		CLCD_command(0x88);
 		if((KeyPara.KeyValue & 0x0F)<=9)CLCD_data((KeyPara.KeyValue & 0x0F)+'0');
 		else CLCD_data((KeyPara.KeyValue & 0x0F)-10+'A');
 
+		CLCD_string(0xC0,"                ");
+	}
 
+
+
+
+	if(KeyPara.KeyValue == 0x7F)
+	{
+
+	   /*
+	   ** Make the AnyBus-IC autodetect our Baud Rate
+
+	   */
+	   fResult = ABIC_AutoBaud();
+
+
+	   if( !fResult )
+	   {
+
+	      /*
+	      ** The baud rate auto detection failed.
+	      ** Write error message and stay here for ever
+	      */
+
+	      CLCD_string(0xC0, "AutoBaud fault!");
+
+	      //while( 1 )	      ;
+
+	   }/* end if */
+	   else
+	   {
+	   	CLCD_string(0xC0, "AutoBaud done!");
+	   }
+	
+	}
+	else if(KeyPara.KeyValue == 0xBF)
+	{
+	   if( ABIC_NormalMode() )
+	   {
+
+	      /*
+	      ** The baud rate auto detection failed.
+	      ** Write error message and stay here for ever
+	      */
+
+	      CLCD_string(0xC0, "Set Mode Fault!");
+
+	      //while( 1 )	      ;
+
+	   }/* end if */
+	   else
+	   {
+	   	 CLCD_string(0xC0, "Set Mode done!");
+	   }
+	}
+	else if(KeyPara.KeyValue == 0xDF)
+	{
 	      /*
 	      ** Get indata values from the CPU AD converter
 	      */
@@ -177,6 +192,11 @@ _delay_ms(500);
 	      */
 	      ABIC_WriteInData( 0, 1, abInData );
 
+		_delay_ms(500);
+		_delay_ms(500);
+_delay_ms(500);
+_delay_ms(500);
+		_delay_ms(500);
 		_delay_ms(500);
 
 
@@ -192,40 +212,33 @@ _delay_ms(500);
 	         ** Print the Out Data values on the display
 	         */
 
-				CLCD_command(0xC0);
+				CLCD_command(0xC7);
 				if((abOutData[ 0 ]>>4)<=9)CLCD_data((abOutData[ 0 ]>>4)+'0');
 				else CLCD_data((abOutData[ 0 ]>>4)-10+'A');
 				
-				CLCD_command(0xC1);
+				CLCD_command(0xC8);
 				if((abOutData[ 0 ] & 0x0F)<=9)CLCD_data((abOutData[ 0 ] & 0x0F)+'0');
 				else CLCD_data((abOutData[ 0 ] & 0x0F)-10+'A');
 
-				CLCD_command(0xC2);
+				CLCD_command(0xC9);
 				if((abOutData[ 1 ]>>4)<=9)CLCD_data((abOutData[ 1 ]>>4)+'0');
 				else CLCD_data((abOutData[ 1 ]>>4)-10+'A');
 				
-				CLCD_command(0xC3);
+				CLCD_command(0xCA);
 				if((abOutData[ 1 ] & 0x0F)<=9)CLCD_data((abOutData[ 1 ] & 0x0F)+'0');
 				else CLCD_data((abOutData[ 1 ] & 0x0F)-10+'A');
 
 			 
 
 	      }
-	   //   else
-	    //  {
-
-	      //   /*
-	       //  ** We could not get correct Out Data
-	        // */
-	        // CLCD_string( 0xC0,"----");
-
-	      //}/* end if */
-
-
-
-		
+		else
+		{
+			CLCD_string(0xC0, "Read Fault!!!!");
+		}
 	}
-
+	else if(KeyPara.KeyValue == 0xEF)
+	{
+	}
 
    }/* end main loop */
 

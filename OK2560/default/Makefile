@@ -37,7 +37,7 @@ HEX_EEPROM_FLAGS += --change-section-lma .eeprom=0 --no-change-warnings
 
 
 ## Include Directories
-INCLUDES = -I"D:\work\SEOHO_VD\OK2560(080724)\AnybusIC" -I"D:\work\SEOHO_VD\OK2560(080724)\source" -I"D:\work\SEOHO_VD\OK2560(080724)\." 
+INCLUDES = -I"D:\work\SEOHO_VD\OK2560(080805)\AnybusIC" -I"D:\work\SEOHO_VD\OK2560(080805)\source" -I"D:\work\SEOHO_VD\OK2560(080805)\." 
 
 ## Objects that must be built in order to link
 OBJECTS = main.o 128by64GLCD.o 16by2CLCD.o serial.o key.o abic.o crc.o mb.o sd.o tm.o 
@@ -102,5 +102,5 @@ clean:
 	-rm -rf $(OBJECTS) OK2560_BD.elf dep/* OK2560_BD.hex OK2560_BD.eep
 
 ## Other dependencies
--include $(shell mkdir dep 2>/dev/null) $(wildcard dep/*)
+-include $(shell mkdir dep 2>NUL) $(wildcard dep/*)
 

@@ -150,43 +150,32 @@ UCHAR MB_SendRecModbusMessage( UCHAR* pbData, UCHAR bSize, UCHAR* pbResponse )
    ** Add CRC to the end of the message to send
    */
 
-   abSendBuffer[ bCharPos ] = ( iCrc >> 8 ) & 0x00FF;
-   abSendBuffer[ bCharPos + 1] = iCrc & 0x00FF;
+   abSendBuffer[ bCharPos ] = (( iCrc >> 8 ) & 0x00FF);
+   abSendBuffer[ bCharPos + 1] = (iCrc & 0x00FF);
 
    /*
    ** Send Modbus Request
    */
-
+#if 1
    for( bCharPos = 0; bCharPos < ( bSize + 2 ) ; bCharPos++ )
    {
 
       SD_PutChar( abSendBuffer[ bCharPos ] );
 
    }/* end for */
+#endif
+
 
 
    //TM_SetTimer( MB_iTimeOutTime );
    TM_StartTimer();
-
-
-   /*
-   ** Wait for repsonse to arrive or timeout
-   */
-
    while( !TM_TimeOut() );
 
-
-  TM_StartTimer();
+   TM_StartTimer();
    while( !TM_TimeOut() );
 
-    TM_StartTimer();
-   while( !TM_TimeOut() );
-
-    TM_StartTimer();
-   while( !TM_TimeOut() );
-
-
-
+ //  TM_StartTimer();
+  // while( !TM_TimeOut() ); 
    //TM_StopTimer();
 
    /*

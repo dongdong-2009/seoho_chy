@@ -114,7 +114,9 @@
 **------------------------------------------------------------------------------
 */
 
-UINT16 GenerateCrc( UCHAR* pabMessage, UINT16 iLength );
+//UINT16 GenerateCrc( UCHAR* pabMessage, UINT16 iLength );
+
+UINT16 GenerateCrc( UCHAR* pabMessage, UCHAR iLength );
 
 #endif  /* inclusion lock */
 

@@ -1,8 +1,9 @@
----- ABIC_WriteInData Matches (7 in 3 files) ----
-Abic.c (anybusic):** ABIC_WriteInData()
-Abic.c (anybusic):BOOL ABIC_WriteInData( UCHAR bOffset, UCHAR bSize, UCHAR* pData )
-Abic.c (anybusic):}/* end ABIC_WriteInData */
-Abic.h (anybusic):**    ABIC_WriteInData()      - Writes Input data TO the AnyBus-IC
-Abic.h (anybusic):** ABIC_WriteInData()
-Abic.h (anybusic):BOOL ABIC_WriteInData( UCHAR bOffset, UCHAR bSize, UCHAR* pData );
-Main.c (source):	      ABIC_WriteInData( 0, 1, abInData );
+---- TM_StartTimer Matches (8 in 3 files) ----
+Mb.c (anybusic):   TM_StartTimer();
+Tm.c (anybusic):** TM_StartTimer()
+Tm.c (anybusic):void TM_StartTimer()
+Tm.c (anybusic):}/* end TM_StartTimer */
+Tm.h (anybusic):**    TM_StartTimer        -  Starts a CPU timer
+Tm.h (anybusic):** TM_StartTimer()
+Tm.h (anybusic):**    TM_StartTimer();
+Tm.h (anybusic):void TM_StartTimer( void );
