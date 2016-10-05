@@ -25,12 +25,20 @@ void Nop()
 
 //--- debug2010-0831 end
 
+   unsigned char abInData[ 2 ];
+   unsigned char abOutData[ 2 ];
+
 double DrivePower;
 int option_board_ID;
 void main( void )
 {
 	F28335PowerOnSet();
 	DrivePower = CheckPowerVersion( );
+
+
+	ABIC_AutoBaud();
+	ABIC_NormalMode();
+
 
 	// Infinity Loop
 
@@ -46,8 +54,22 @@ void main( void )
 		
 
 //		option_board_ID = CheckOptionCardID();
-		
-	
+
+abInData[0]=0xAB;
+abInData[1]=0xCD;
+
+//ABIC_ReadOutData( 0, 1, abInData );
+ABIC_WriteInData( 0, 1, abInData );
+
+//ABIC_ReadOutData( 1, 1, abInData );
+ABIC_WriteInData( 1, 1, abInData );
+
+//ABIC_ReadOutData( 2, 1, abInData );
+ABIC_WriteInData( 2, 1, abInData );
+
+//ABIC_ReadOutData( 3, 1, abInData );
+ABIC_WriteInData( 3, 1, abInData );
+
 		Nop();
 	}
 
@@ -99,8 +121,8 @@ void F28335PowerOnSet()
 
 // Initialize SCI-A for data monitoring 
 	sci_debug_init(); // by RYU
-	// Initialize SCI-B, SCI-C
-//	scib_init();    // masked by chy
+// Initialize SCI-B, SCI-C
+	scib_init();    // masked by chy
 //	scic_init();    // masked by chy
 	InitAdc();
 //	EQEP_Initialization();    // chy
@@ -117,16 +139,16 @@ void F28335PowerOnSet()
 // chy added 2010.10.25 
 
 
-  EALLOW;	// Allow access to EALLOW protected registers
-   PieVectTable.MRINTA= &Mcbsp_RxINTA_ISR;
-   PieVectTable.MXINTA= &Mcbsp_TxINTA_ISR;
-   EDIS;   // Disable access to EALLOW protected registers
+	EALLOW;	// Allow access to EALLOW protected registers
+	PieVectTable.MRINTA= &Mcbsp_RxINTA_ISR;
+	PieVectTable.MXINTA= &Mcbsp_TxINTA_ISR;
+	EDIS;   // Disable access to EALLOW protected registers
 
-   PieCtrlRegs.PIECTRL.bit.ENPIE = 1;   // Enable the PIE block
-   PieCtrlRegs.PIEIER6.bit.INTx5=1;     // Enable PIE Group 6, INT 5
-   PieCtrlRegs.PIEIER6.bit.INTx6=1;     // Enable PIE Group 6, INT 6
-   IER |=0x20;                            // Enable CPU INT6
- //  EINT;                               // Enable Global Interrupts
+	PieCtrlRegs.PIECTRL.bit.ENPIE = 1;   // Enable the PIE block
+	PieCtrlRegs.PIEIER6.bit.INTx5=1;     // Enable PIE Group 6, INT 5
+	PieCtrlRegs.PIEIER6.bit.INTx6=1;     // Enable PIE Group 6, INT 6
+	IER |=0x20;                            // Enable CPU INT6
+	//  EINT;                               // Enable Global Interrupts
 
 	ZONE0_BUF[0x0060] = 0x0006; //hhh DAC_reset on -> by RYU
 	NOP;
@@ -143,7 +165,7 @@ void F28335PowerOnSet()
 	RESET_DRIVER_SET;		//316J PWM on
 	Variable_Initialization();
 
-// Enable global Interrupts and higher priority real-time debug events:
+	// Enable global Interrupts and higher priority real-time debug events:
 	EINT;   // Enable Global interrupt INTM
 	ERTM;	// Enable Global realtime interrupt DBGM
 

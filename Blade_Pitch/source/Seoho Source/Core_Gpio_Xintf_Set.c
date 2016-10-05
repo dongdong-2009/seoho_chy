@@ -99,6 +99,7 @@ void InitGpio(void)
    GpioCtrlRegs.GPAMUX2.bit.GPIO17 	= 1;  // GPIO17 = GPIO
    GpioCtrlRegs.GPADIR.bit.GPIO17 	= 0;  // GPIO17 = input
 
+#if 0
    // GPIO18 TXD
 //   GpioCtrlRegs.GPAPUD.bit.GPIO18 	= 0;  // Enable pullup on GPIO18     
 //   GpioDataRegs.GPACLEAR.bit.GPIO18	= 1;  // Set Output High
@@ -110,7 +111,7 @@ void InitGpio(void)
 //   GpioDataRegs.GPASET.bit.GPIO19 	= 1;  // Set Output High
    GpioCtrlRegs.GPAMUX2.bit.GPIO19 	= 2;  // GPIO19 = SCIRXDB
    GpioCtrlRegs.GPADIR.bit.GPIO19 	= 1;  // 
-
+#endif
   
 
   //GPIO20 GPIO.4 MDXA 

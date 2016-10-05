@@ -87,6 +87,3 @@ LinkOrder=1
 ["cmd\Soho28335_RAM_lnk.cmd" Settings: "Release"]
 LinkOrder=1
 
-
-[Tools]
-ToolDeleteList 
