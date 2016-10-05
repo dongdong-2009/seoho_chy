@@ -1,0 +1,4 @@
+---- EnableInterrupts Matches (3 in 2 files) ----
+Core_DSP2833x_GlobalPrototypes.h (include\ti include):extern void EnableInterrupts(void);
+Core_DSP2833x_PieCtrl.c (source\ti source):// EnableInterrupts: 
+Core_DSP2833x_PieCtrl.c (source\ti source):void EnableInterrupts()

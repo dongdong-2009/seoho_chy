@@ -1,0 +1,9 @@
+---------------------  Seoho VD Drive Program.pjt - Debug  ---------------------
+[All_Main.c] "C:\CCStudio_v3.3\C2000\cgtools\bin\cl2000" -gt -pdsw225 -fr"D:/work/SEOHO_VD/Seoho_VD_Drive_Program(101126_28bit)ssi/Debug" -i"D:/work/SEOHO_VD/Seoho_VD_Drive_Program(101126_28bit)ssi/lib" -i"D:/work/SEOHO_VD/Seoho_VD_Drive_Program(101126_28bit)ssi/include/Seoho include" -i"D:/work/SEOHO_VD/Seoho_VD_Drive_Program(101126_28bit)ssi/include/TI include" -i"D:/work/SEOHO_VD/Seoho_VD_Drive_Program(101126_28bit)ssi/source/anybus_ic" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../../Debug.lkf" "All_Main.c"
+"All_Main.c", line 36: warning: variable "fResult" was set but never used
+
+[Linking...] "C:\CCStudio_v3.3\C2000\cgtools\bin\cl2000" -@"Debug.lkf"
+<Linking>
+
+Build Complete,
+  0 Errors, 1 Warnings, 0 Remarks.
