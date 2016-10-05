@@ -1,0 +1,9 @@
+---- ABIC_ReadOutData Matches (8 in 3 files) ----
+Abic.c (anybusic):** ABIC_ReadOutData()
+Abic.c (anybusic):BOOL ABIC_ReadOutData( UCHAR bOffset, UCHAR bSize, UCHAR* pData )
+Abic.c (anybusic):}/* end ABIC_ReadOutData */
+Abic.h (anybusic):**    ABIC_ReadOutData()      - Reads Output data FROM the AnyBus-IC
+Abic.h (anybusic):** ABIC_ReadOutData()
+Abic.h (anybusic):**    ABIC_ReadOutData( 0, 2, abOutDataBuffer );
+Abic.h (anybusic):BOOL ABIC_ReadOutData( UCHAR bOffset, UCHAR bSize, UCHAR* pData );
+Main.c (source):      fResult = ABIC_ReadOutData( 0, 1, abOutData );
