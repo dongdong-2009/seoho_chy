@@ -73,6 +73,10 @@
 #define ABIC_H
 
 
+
+extern unsigned int ReadDoneFlag;
+extern unsigned int WriteDoneFlag;
+
 /*******************************************************************************
 **
 ** Public Services Definitions

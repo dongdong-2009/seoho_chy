@@ -1,12 +1,17 @@
 ---------------------  Seoho VD Drive Program.pjt - Debug  ---------------------
-[abic.c] "C:\CCStudio_v3.3\C2000\cgtools\bin\cl2000" -gt -pdsw225 -fr"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110423_canopen/Debug" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110423_canopen/lib" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110423_canopen/include/Seoho include" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110423_canopen/include/TI include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../../Debug.lkf" "abic.c"
+[abic.c] "C:\CCStudio_v3.3\C2000\cgtools\bin\cl2000" -gt -pdsw225 -fr"D:/work/Blade_Pitch_110502_canopen/Debug" -i"D:/work/Blade_Pitch_110502_canopen/lib" -i"D:/work/Blade_Pitch_110502_canopen/include/Seoho include" -i"D:/work/Blade_Pitch_110502_canopen/include/TI include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../../Debug.lkf" "abic.c"
+"abic.c", line 240: warning: function declared implicitly
+"abic.c", line 281: warning: function declared implicitly
+"abic.c", line 317: warning: missing return statement at end of non-void function "ABIC_ReadOutData"
+"abic.c", line 403: warning: function declared implicitly
+"abic.c", line 447: warning: function declared implicitly
+"abic.c", line 468: warning: last line of file ends without a newline
+"abic.c", line 468: warning: missing return statement at end of non-void function "ABIC_WriteInData"
 
-[mb.c] "C:\CCStudio_v3.3\C2000\cgtools\bin\cl2000" -gt -pdsw225 -fr"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110423_canopen/Debug" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110423_canopen/lib" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110423_canopen/include/Seoho include" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110423_canopen/include/TI include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../../Debug.lkf" "mb.c"
-
-[All_Main.c] "C:\CCStudio_v3.3\C2000\cgtools\bin\cl2000" -gt -pdsw225 -fr"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110423_canopen/Debug" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110423_canopen/lib" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110423_canopen/include/Seoho include" -i"D:/work/SEOHO_VD/SEOHO_CHY/Blade_Pitch_110423_canopen/include/TI include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../../Debug.lkf" "All_Main.c"
+[All_Main.c] "C:\CCStudio_v3.3\C2000\cgtools\bin\cl2000" -gt -pdsw225 -fr"D:/work/Blade_Pitch_110502_canopen/Debug" -i"D:/work/Blade_Pitch_110502_canopen/lib" -i"D:/work/Blade_Pitch_110502_canopen/include/Seoho include" -i"D:/work/Blade_Pitch_110502_canopen/include/TI include" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32 -@"../../Debug.lkf" "All_Main.c"
 
 [Linking...] "C:\CCStudio_v3.3\C2000\cgtools\bin\cl2000" -@"Debug.lkf"
 <Linking>
 
 Build Complete,
-  0 Errors, 0 Warnings, 0 Remarks.
+  0 Errors, 7 Warnings, 0 Remarks.

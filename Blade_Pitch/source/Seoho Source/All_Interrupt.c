@@ -1,5 +1,10 @@
 #include	<All_Header.h>
 #include	<All_Extern_Variables.h>
+
+#include "..\anybus_ic\fd.h"
+#include "..\anybus_ic\mb.h"
+#include "..\anybus_ic\abic.h"
+
 //#include 	<Shell_SCI_BC.h> 
 
 //PWM interrupt
@@ -104,8 +109,9 @@ interrupt void MainPWM(void)
 
 	Main_counter++;
 
-#if 0
+
 	ms_cnt++;
+#if 0
 
 	if(ms_cnt >= 65535) ms_cnt = 0 ;
 
@@ -149,6 +155,7 @@ interrupt void MainPWM(void)
 
  
 	     mcbsp_xmit(0x00,0x00);
+//		 MB_iTimeOutTime++;     // by chy
 	// Call Scheduled Routines 
 	if( Main_counter & 0x1 )			// 2*CC Odd Routines : 1 
 	{	
@@ -181,6 +188,7 @@ interrupt void MainPWM(void)
 		else if( Main_counter & 0x8 ) 	// 16*CC Routines : 1000 
 		{	
 //			x16_routine();
+	//	 MB_iTimeOutTime++;     // by chy
 		}	
 	}
 	else
@@ -377,6 +385,7 @@ interrupt void Mcbsp_TxINTA_ISR(void)
 //    McbspaRegs.DXR1.all= sdata;
 //   sdata = (sdata+1)& 0x00FF ;
     // To receive more interrupts from this PIE group, acknowledge this interrupt
+//    MB_iTimeOutTime++;
 	tx_complete = 1;
     PieCtrlRegs.PIEACK.all = PIEACK_GROUP6;
 }
@@ -404,6 +413,7 @@ interrupt void Mcbsp_RxINTA_ISR(void)
 		tx_complete= 0;	
 		rx_complete = 1;
 		rx_int++;
+  //  MB_iTimeOutTime++;
 	}
 
 		if(rx_int == 0)

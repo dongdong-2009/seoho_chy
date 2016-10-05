@@ -28,6 +28,7 @@ void Nop()
    unsigned char abInData[ 2 ];
    unsigned char abOutData[ 2 ];
 
+unsigned int InOutAddr=0;
 double DrivePower;
 int option_board_ID;
 void main( void )
@@ -45,9 +46,13 @@ void main( void )
 	while(1)
 	{
 
+
 //scib_putc(0xab);
 
-	#if 1
+//Nop();	Nop();	Nop();	Nop();	Nop();Nop();	Nop();Nop();	Nop();	Nop();	Nop();	Nop();	Nop();	Nop();	Nop();	Nop();	Nop();
+
+
+#if 1
 		State_Management();
 //		Keypad_Serial_Communication();
 //		DSPtoMonitoring();
@@ -62,17 +67,21 @@ void main( void )
 abInData[0]=0x00;
 abInData[1]=0x00;
 
-ABIC_ReadOutData( 0, 1, abInData );
-ABIC_WriteInData( 0, 1, abInData );
+//ReadDoneFlag = 0;
 
-ABIC_ReadOutData( 1, 1, abInData );
-ABIC_WriteInData( 1, 1, abInData );
+ABIC_ReadOutData( 0, InOutAddr, abInData );
 
-ABIC_ReadOutData( 2, 1, abInData );
-ABIC_WriteInData( 2, 1, abInData );
+if(ReadDoneFlag)
+{
+	ABIC_WriteInData( 0, InOutAddr, abInData );
 
-ABIC_ReadOutData( 3, 1, abInData );
-ABIC_WriteInData( 3, 1, abInData );
+	if(WriteDoneFlag)
+	{
+		ReadDoneFlag =0;
+		InOutAddr++;
+		if(4 < InOutAddr)InOutAddr = 1;
+	}
+}
 
 
 #endif

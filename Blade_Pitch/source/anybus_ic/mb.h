@@ -86,7 +86,7 @@
 **------------------------------------------------------------------------------
 */
 
-#define MB_DEFAULT_TIMEOUT  75000000L
+#define MB_DEFAULT_TIMEOUT  500//75000 
 
 
 
@@ -143,7 +143,7 @@ extern UINT8 MB_bTimeOutCounter;
 **------------------------------------------------------------------------------
 */
 
-extern UINT16 MB_iTimeOutTime;
+extern UINT32 MB_iTimeOutTime;
 extern UINT16 TM_iTimeOutTime;
 
 void MB_SetTimeout( UINT16 iTime );

@@ -172,110 +172,297 @@ BOOL ABIC_NormalMode( void )
 ** ABIC_ReadOutData()
 **------------------------------------------------------------------------------
 */
-
+UCHAR bReadSize;
+unsigned int ReadStep=0;
+unsigned int ReadDoneFlag = 0;
 BOOL ABIC_ReadOutData( UCHAR bOffset, UCHAR bSize, UCHAR* pData )
 {
 
-   UCHAR bCount;
-   UCHAR bReadSize;
- //  UCHAR abRequest[ 6 ];
+	   UCHAR bCount;
+	
+	 //  UCHAR abRequest[ 6 ];
+	  UCHAR abSendBuffer[ 30 ]={0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0};
+	   UINT16 iCrc;
+	   UCHAR bCharPos = 0;
 
+	if(ReadStep == 0)
+	{
+		if(!ReadDoneFlag) ReadStep = 1;
+	}
+	else if(ReadStep == 1)
+	{
+		/*
+		** Set up Read Input registers request
+		*/
 
-   /*
-   ** Set up Read Input registers request
-   */
+		abRequest[ 0 ] = 0x01;           /* Modbus Address           */
+		abRequest[ 1 ] = 0x04;           /* Modbus Function Code     */
+		abRequest[ 2 ] = 0x10;           /* Modbus Address High Byte */
+		abRequest[ 3 ] = bOffset;        /* Modbus Address Low Byte  */
+		//abRequest[ 2 ] = 0x50;           /* Modbus Address High Byte */
+		//abRequest[ 3 ] = 0x01;        /* Modbus Address Low Byte  */
+		abRequest[ 4 ] = 0x00;           /* No. of Points High       */
+		abRequest[ 5 ] = bSize;          /* No. of Points Low        */
 
-   abRequest[ 0 ] = 0x01;           /* Modbus Address           */
-   abRequest[ 1 ] = 0x04;           /* Modbus Function Code     */
-   abRequest[ 2 ] = 0x10;           /* Modbus Address High Byte */
-   abRequest[ 3 ] = bOffset;        /* Modbus Address Low Byte  */
-   //abRequest[ 2 ] = 0x50;           /* Modbus Address High Byte */
-   //abRequest[ 3 ] = 0x01;        /* Modbus Address Low Byte  */
-   abRequest[ 4 ] = 0x00;           /* No. of Points High       */
-   abRequest[ 5 ] = bSize;          /* No. of Points Low        */
+		/*
+		** Send the Request
+		*/
 
-   /*
-   ** Send the Request
-   */
+		bSize = 6;
 
-   bReadSize = MB_SendRecModbusMessage( abRequest, 6, abResponse ) - 3;
+		/*
+		** Check if the message is to long
+		*/
 
-   /*
-   ** Check if we received the amount of data we requested.
-   ** If we did, copy it to data buffer
-   */
+		if( bSize > 249 )
+		{
 
-   if( bReadSize == ( bSize * 2 ) )
-   {
+			ReadStep = 0;
+			//return( 0 );
 
-      for( bCount = 0; bCount < ( bSize * 2 ) ; bCount++ )
-      {
+		}/* end if message to long */
 
-         pData[ bCount ] = abResponse[ bCount + 3 ];
+		/*
+		** Copy Data To send buffer
+		*/
 
-      }/* end for */
+		for( bCharPos = 0 ; bCharPos < bSize ; bCharPos++ )
+		{
 
+			abSendBuffer[ bCharPos ] = abRequest[ bCharPos ];
 
-      return TRUE;
+		}/* end for */
 
-   }/* end if right size read */
+		/*
+		** Generate CRC for the message to send
+		*/
 
+		iCrc = GenerateCrc( abSendBuffer, bCharPos );
 
-   return FALSE;
+		/*
+		** Add CRC to the end of the message to send
+		*/
 
+		abSendBuffer[ bCharPos ] = (( iCrc >> 8 ) & 0x00FF);
+		abSendBuffer[ bCharPos + 1] = (iCrc & 0x00FF);
+
+		/*
+		** Send Modbus Request
+		*/
+
+		for( bCharPos = 0; bCharPos < ( bSize + 2 ) ; bCharPos++ )     scib_putc( abSendBuffer[ bCharPos ] );
+	   
+		MB_iTimeOutTime = 0;
+
+		ReadStep = 2;
+
+	}
+	else if(ReadStep == 2)
+	{
+		if( MB_DEFAULT_TIMEOUT < MB_iTimeOutTime )ReadStep = 3;
+		else 	MB_iTimeOutTime++;
+
+	}
+	else if(ReadStep == 3)//** Read response
+	{
+		bCharPos = 0;
+
+		while( SD_CharReceived() )
+		{
+			  abResponse[ bCharPos ] = SD_GetChar();
+			  bCharPos++;
+		}/* end while rx buffer not emty */
+
+		if( bCharPos == 0 ) MB_bTimeOutCounter++;
+		else if( bCharPos == 1 )   MB_bCRCCounter++;
+
+		if( bCharPos > 1 )
+		{
+			iCrc = GenerateCrc( abResponse, bCharPos - 2 );//Generate CRC for the response message
+
+			//Check CRC
+			if( ( ( (UCHAR)( iCrc >> 8 ) ) == abResponse[ bCharPos - 2 ] ) && ( ( (UCHAR)iCrc ) == abResponse[ bCharPos - 1 ] ) )
+			{
+				ReadStep = 4;
+				bReadSize =  bCharPos - 2 -3;//Correct CRC return received length
+			}
+			else
+			{
+				ReadStep = 4;
+				bReadSize =  bCharPos - 2 -3;
+
+				MB_bCRCCounter++; //CRC error
+			}/* end if right crc */
+
+		}/* end if response received */
+	}
+	else if(ReadStep == 4)
+	{
+		if( bReadSize == ( bSize * 2 ) )
+		{
+
+			for( bCount = 0; bCount < ( bSize * 2 ) ; bCount++ )
+			{
+
+				 pData[ bCount ] = abResponse[ bCount + 3 ];
+				 ReadDoneFlag = 1;
+
+			}/* end for */
+
+		}/* end if right size read */
+
+		
+		ReadStep = 0;
+	}
 }/* end ABIC_ReadOutData */
-
 
 
 /*------------------------------------------------------------------------------
 ** ABIC_WriteInData()
 **------------------------------------------------------------------------------
 */
-
+unsigned int WriteStep=0;
+unsigned int WriteDoneFlag = 0;
 BOOL ABIC_WriteInData( UCHAR bOffset, UCHAR bSize, UCHAR* pData )
 {
 
    UCHAR bCount;
    //UCHAR abRequest[ 11 ];
 
-   /*
-   ** Set up Preset Multiple Registers request
-   */
-
-   abRequest[ 0 ] = 0x01;           /* Modbus Address           */
-   abRequest[ 1 ] = 0x10;           /* Modbus Function Code     */
-   abRequest[ 2 ] = 0x00;           /* Starting Address High    */
-   abRequest[ 3 ] = bOffset;        /* Starting Address Low     */
-   abRequest[ 4 ] = 0x00;           /* No. of Registers High    */
-   abRequest[ 5 ] = bSize;          /* No. of Registers Low     */
-   abRequest[ 6 ] = bSize * 2;      /* Byte Count               */
-
-   /*
-   ** Copy Data to Request
-   */
-
-   for( bCount = 0; bCount < ( bSize * 2 ) ; bCount++ )
-   {
-
-      abRequest[ bCount + 7 ] = pData[ bCount ];
-
-   }/* end for */
-
-   /*
-   ** Send the Modbus Request and check if the response size is
-   ** the length of a Preset Multiple Register Response ( 6 )
-   */
-
-   if( MB_SendRecModbusMessage( abRequest, 7 + ( 2 * bSize ), abResponse ) == 6 )
-   {
+   UCHAR abSendBuffer[ 30 ]={0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0};
+   UINT16 iCrc;
+   UCHAR bCharPos = 0;
 
 
-      return( TRUE );
+	if(WriteStep == 0)
+	{
+		if(!WriteDoneFlag) WriteStep = 1;
+	}
+	else if(WriteStep == 1)
+	{
+   
+		/*
+		** Set up Preset Multiple Registers request
+		*/
 
-   }/* end if command succeded */
+		abRequest[ 0 ] = 0x01;           /* Modbus Address           */
+		abRequest[ 1 ] = 0x10;           /* Modbus Function Code     */
+		abRequest[ 2 ] = 0x00;           /* Starting Address High    */
+		abRequest[ 3 ] = bOffset;        /* Starting Address Low     */
+		abRequest[ 4 ] = 0x00;           /* No. of Registers High    */
+		abRequest[ 5 ] = bSize;          /* No. of Registers Low     */
+		abRequest[ 6 ] = bSize * 2;      /* Byte Count               */
+
+		/*
+		** Copy Data to Request
+		*/
+
+		for( bCount = 0; bCount < ( bSize * 2 ) ; bCount++ )
+		{
+
+		  abRequest[ bCount + 7 ] = pData[ bCount ];
+
+		}/* end for */
+
+		/*
+		** Send the Modbus Request and check if the response size is
+		** the length of a Preset Multiple Register Response ( 6 )
+		*/
+
+		//if( MB_SendRecModbusMessage( abRequest, 7 + ( 2 * bSize ), abResponse ) == 6 )
 
 
-   return( FALSE );
+		/*
+		** Check if the message is to long
+		*/
+		bSize =  7 + ( 2 * bSize );
 
+		if( bSize > 249 )
+		{
 
-}
+			WriteStep = 0;
+			//return( 0 );
+
+		}/* end if message to long */
+
+		/*
+		** Copy Data To send buffer
+		*/
+
+		for( bCharPos = 0 ; bCharPos < bSize ; bCharPos++ )
+		{
+
+		  abSendBuffer[ bCharPos ] = abRequest[ bCharPos ];
+
+		}/* end for */
+
+		/*
+		** Generate CRC for the message to send
+		*/
+
+		iCrc = GenerateCrc( abSendBuffer, bCharPos );
+
+		/*
+		** Add CRC to the end of the message to send
+		*/
+
+		abSendBuffer[ bCharPos ] = (( iCrc >> 8 ) & 0x00FF);
+		abSendBuffer[ bCharPos + 1] = (iCrc & 0x00FF);
+
+		/*
+		** Send Modbus Request
+		*/
+
+		for( bCharPos = 0; bCharPos < ( bSize + 2 ) ; bCharPos++ )
+		{
+
+		  scib_putc( abSendBuffer[ bCharPos ] );
+
+		}/* end for */
+
+		WriteStep = 2;
+
+	}
+	else if(WriteStep == 2)
+	{
+		if( MB_DEFAULT_TIMEOUT < MB_iTimeOutTime )WriteStep = 3;
+		else 	MB_iTimeOutTime++;
+
+	}
+	else if(WriteStep == 3)//** Read response
+	{
+		bCharPos = 0;
+
+		while( SD_CharReceived() )
+		{
+			  abResponse[ bCharPos ] = SD_GetChar();
+			  bCharPos++;
+		}/* end while rx buffer not emty */
+
+		if( bCharPos == 0 ) MB_bTimeOutCounter++;
+		else if( bCharPos == 1 )   MB_bCRCCounter++;
+
+		if( bCharPos > 1 )
+		{
+			iCrc = GenerateCrc( abResponse, bCharPos - 2 );//Generate CRC for the response message
+
+			//Check CRC
+			if( ( ( (UCHAR)( iCrc >> 8 ) ) == abResponse[ bCharPos - 2 ] ) && ( ( (UCHAR)iCrc ) == abResponse[ bCharPos - 1 ] ) )
+			{
+				bCount =  bCharPos - 2;//Correct CRC return received length
+			}
+			else
+			{
+				bCount =  bCharPos - 2;
+
+				MB_bCRCCounter++; //CRC error
+			}/* end if right crc */
+
+		}/* end if response received */
+
+		
+		WriteStep = 0;
+
+		WriteDoneFlag = 1;
+	}
+}/* end ABIC_ReadOutData */

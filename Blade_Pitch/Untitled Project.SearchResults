@@ -1,7 +1,5 @@
----- bCount Matches (12 in 1 files) ----
-Abic.c (source\anybus_ic):   UCHAR bCount;
-Abic.c (source\anybus_ic):      for( bCount = 0; bCount < ( bSize * 2 ) ; bCount++ )
-Abic.c (source\anybus_ic):         pData[ bCount ] = abResponse[ bCount + 3 ];
-Abic.c (source\anybus_ic):   UCHAR bCount;
-Abic.c (source\anybus_ic):   for( bCount = 0; bCount < ( bSize * 2 ) ; bCount++ )
-Abic.c (source\anybus_ic):      abRequest[ bCount + 7 ] = pData[ bCount ];
+---- scib_rx_isr Matches (4 in 1 files) ----
+SCI_B.c (source\anybus_ic):#pragma CODE_SECTION(scib_rx_isr, "ramfuncs");
+SCI_B.c (source\anybus_ic):interrupt void scib_rx_isr(void);
+SCI_B.c (source\anybus_ic):interrupt void scib_rx_isr(void){
+SCI_B.c (source\anybus_ic):	PieVectTable.SCIRXINTB = &scib_rx_isr;

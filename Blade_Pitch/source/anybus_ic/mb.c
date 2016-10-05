@@ -80,7 +80,7 @@ UCHAR MB_bTimeOutCounter;
 ********************************************************************************
 */
 
-UINT16 MB_iTimeOutTime;
+UINT32 MB_iTimeOutTime;
 
 
 /*******************************************************************************
@@ -109,9 +109,10 @@ BOOL TM_TimeOut()
 	if( MB_DEFAULT_TIMEOUT < MB_iTimeOutTime )	return( TRUE );
 	else
 	{
-		MB_iTimeOutTime++;
-		return( FALSE );
+		//MB_iTimeOutTime++;
+		 return( FALSE );
 	}
+
 }
 
 
@@ -237,6 +238,7 @@ UCHAR MB_SendRecModbusMessage( UCHAR* pbData, UCHAR bSize, UCHAR* pbResponse )
       }
       else
       {
+		return( bCharPos - 2 );
 
 
          /*

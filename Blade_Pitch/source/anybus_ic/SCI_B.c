@@ -95,7 +95,7 @@ sd_DataType;
 sd_DataType sd_s;
 
 
-unsigned int tttt=0;
+
 
 // 현재 SCI-B 포트에 수신된 데이터(ex08_can.c 파일에 변수 정의됨)
 extern char scib_rxd; 
@@ -210,12 +210,16 @@ interrupt void scib_tx_isr(void){
 	PieCtrlRegs.PIEACK.all = PIEACK_GROUP9;
 }
 
+unsigned int tttt=0;
 
 interrupt void scib_rx_isr(void){
 
    sd_s.abRxBuffer[ sd_s.iRxPut ] = ScibRegs.SCIRXBUF.all;
 
 	//tttt = ScibRegs.SCIRXBUF.all;
+
+	tttt++;
+
 
    /*
    ** go to the next possition in the rx buffer
