@@ -1,4 +1,7 @@
----- InitSpiGpio Matches (3 in 2 files) ----
-Core_DSP2833x_GlobalPrototypes.h (include\ti include):extern void InitSpiGpio(void);
-Shell_DSP2833x_Spi.c (source\ti source):// Example: InitSpiGpio: 
-Shell_DSP2833x_Spi.c (source\ti source):void InitSpiGpio()
+---- bCount Matches (12 in 1 files) ----
+Abic.c (source\anybus_ic):   UCHAR bCount;
+Abic.c (source\anybus_ic):      for( bCount = 0; bCount < ( bSize * 2 ) ; bCount++ )
+Abic.c (source\anybus_ic):         pData[ bCount ] = abResponse[ bCount + 3 ];
+Abic.c (source\anybus_ic):   UCHAR bCount;
+Abic.c (source\anybus_ic):   for( bCount = 0; bCount < ( bSize * 2 ) ; bCount++ )
+Abic.c (source\anybus_ic):      abRequest[ bCount + 7 ] = pData[ bCount ];

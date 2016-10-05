@@ -36,8 +36,8 @@ void main( void )
 	DrivePower = CheckPowerVersion( );
 
 
-	//ABIC_AutoBaud();
-	//ABIC_NormalMode();
+	ABIC_AutoBaud();
+	ABIC_NormalMode();
 
 
 	// Infinity Loop
@@ -45,17 +45,9 @@ void main( void )
 	while(1)
 	{
 
+//scib_putc(0xab);
 
-scib_putc(0xab);
-Nop();
-	Nop();
-
-	Nop();	Nop();	Nop();Nop();	Nop();Nop();
-	Nop();
-	Nop();	Nop();	Nop();	Nop();	Nop();	Nop();	Nop();	Nop();
-
-
-	#if 0
+	#if 1
 		State_Management();
 //		Keypad_Serial_Communication();
 //		DSPtoMonitoring();
@@ -67,19 +59,19 @@ Nop();
 
 //		option_board_ID = CheckOptionCardID();
 
-abInData[0]=0xAB;
-abInData[1]=0xCD;
+abInData[0]=0x00;
+abInData[1]=0x00;
 
-//ABIC_ReadOutData( 0, 1, abInData );
+ABIC_ReadOutData( 0, 1, abInData );
 ABIC_WriteInData( 0, 1, abInData );
 
-//ABIC_ReadOutData( 1, 1, abInData );
+ABIC_ReadOutData( 1, 1, abInData );
 ABIC_WriteInData( 1, 1, abInData );
 
-//ABIC_ReadOutData( 2, 1, abInData );
+ABIC_ReadOutData( 2, 1, abInData );
 ABIC_WriteInData( 2, 1, abInData );
 
-//ABIC_ReadOutData( 3, 1, abInData );
+ABIC_ReadOutData( 3, 1, abInData );
 ABIC_WriteInData( 3, 1, abInData );
 
 

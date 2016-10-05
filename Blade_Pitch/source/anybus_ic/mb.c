@@ -107,7 +107,11 @@ void TM_StartTimer()
 BOOL TM_TimeOut()
 {
 	if( MB_DEFAULT_TIMEOUT < MB_iTimeOutTime )	return( TRUE );
-	else return( FALSE );
+	else
+	{
+		MB_iTimeOutTime++;
+		return( FALSE );
+	}
 }
 
 
