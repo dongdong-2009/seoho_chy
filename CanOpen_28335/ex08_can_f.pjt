@@ -1,0 +1,61 @@
+; Code Composer Project File, Version 2.0 (do not modify or remove this line)
+
+[Project Settings]
+ProjectDir="D:\work\SEOHO_VD\CanOpen_28335_100923\"
+ProjectType=Executable
+CPUFamily=TMS320C28XX
+Tool="Compiler"
+Tool="CustomBuilder"
+Tool="DspBiosBuilder"
+Tool="Linker"
+Config="Debug"
+Config="Release"
+
+[Source Files]
+Source="ADC.c"
+Source="anybus_ic\abic.c"
+Source="anybus_ic\crc.c"
+Source="anybus_ic\mb.c"
+Source="debug_2833x.c"
+Source="DSK2833x_GlobalFunc.c"
+Source="DSP2833x_source\DSP2833x_ADC_cal.asm"
+Source="DSP2833x_source\DSP2833x_CodeStartBranch.asm"
+Source="DSP2833x_source\DSP2833x_CpuTimers.c"
+Source="DSP2833x_source\DSP2833x_CSMPasswords.asm"
+Source="DSP2833x_source\DSP2833x_DefaultIsr.c"
+Source="DSP2833x_source\DSP2833x_ECan.c"
+Source="DSP2833x_source\DSP2833x_GlobalVariableDefs.c"
+Source="DSP2833x_source\DSP2833x_MemCopy.c"
+Source="DSP2833x_source\DSP2833x_PieCtrl.c"
+Source="DSP2833x_source\DSP2833x_PieVect.c"
+Source="DSP2833x_source\DSP2833x_SysCtrl.c"
+Source="DSP2833x_source\DSP2833x_usDelay.asm"
+Source="eCAN.c"
+Source="ex08_can_f.c"
+Source="I2C_eeprom.c"
+Source="SCI_B.c"
+Source="SCI_C_usb.c"
+Source="SPI_dac.c"
+Source="FLASH.cmd"
+
+["Compiler" Settings: "Debug"]
+Options=-gt -fr"$(Proj_dir)\Debug" -i".\DSP2833x_include" -d"_DEBUG" -d"LARGE_MODEL" -ml -mt -v28 --float_support=fpu32
+
+["Compiler" Settings: "Release"]
+Options=-pdsw225 -o3 -fr"$(Proj_dir)\Release" -d"LARGE_MODEL" -ml -v28
+
+["Linker" Settings: "Debug"]
+Options=-q -c -ecode_start -m".\Debug\ex08_can_f.map" -o".\Debug\ex08_can_f.out" -stack0x200 -w -x -i"..\DSP2833x_lib" -l"rts2800_fpu32.lib"
+
+["Linker" Settings: "Release"]
+Options=-c -m".\Release\ex08_can_f.map" -o".\Release\ex08_can_f.out" -w -x
+
+["FLASH.cmd" Settings: "Debug"]
+LinkOrder=1
+
+["FLASH.cmd" Settings: "Release"]
+LinkOrder=1
+
+
+[Tools]
+ToolDeleteList 

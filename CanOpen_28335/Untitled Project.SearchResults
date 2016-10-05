@@ -1,0 +1,7 @@
+---- MB_iTimeOutTime Matches (6 in 3 files) ----
+Ex08_can_f.c:	MB_iTimeOutTime++;
+Mb.c (anybus_ic):UINT16 MB_iTimeOutTime;
+Mb.c (anybus_ic):   MB_iTimeOutTime = 0;
+Mb.c (anybus_ic):	if( MB_DEFAULT_TIMEOUT < MB_iTimeOutTime )	return( TRUE );
+Mb.h (anybus_ic):** MB_iTimeOutTime
+Mb.h (anybus_ic):extern UINT16 MB_iTimeOutTime;
