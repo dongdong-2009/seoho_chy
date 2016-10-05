@@ -364,13 +364,13 @@ void Init_External_Interrupt(void){
 	PieCtrlRegs.PIEIER12.bit.INTx3 = 1;	// Enable XINT5 in the PIE: Group 12 interrupt 3
 	PieCtrlRegs.PIEIER12.bit.INTx4 = 1;	// Enable XINT6 in the PIE: Group 12 interrupt 4
 }
-   unsigned char abInData[ 2 ];
-   unsigned char abOutData[ 2 ];
-unsigned int step=0;
+
 void main(void)
 {
 
    BOOL fResult;
+   unsigned char abInData[ 2 ];
+   unsigned char abOutData[ 2 ];
 
 	
 	// Step 1. Initialize System Control:
@@ -491,30 +491,7 @@ void main(void)
 	
 	lcd_gotoxy(0, 0);
 	lcd_puts("CanOpen 28335");
-
-
-
-ABIC_AutoBaud();
-ABIC_NormalMode();
-
-
-
-while(1)
-{
-abInData[0]=0x00;
-abInData[1]=0x00;
-
-	ABIC_ReadOutData( 0, 1, abInData );
-
-
-	ABIC_WriteInData( 0, 1, abInData );
-
 	
-	step++;
-	if(3<step)step=0;
-
-
-#if 0	
 	while(TRUE){
 		m_cnt++;
 		dac0_data += 2;
@@ -527,8 +504,6 @@ abInData[1]=0x00;
 		DAC_Out(dac0_data, dac1_data);
 		
 		//if(key_code & KEY_PRESSED) can_key_process();
-
-
 
 //scib_putc(0x55 );
 		
@@ -584,13 +559,13 @@ abInData[1]=0x00;
 					      /*
 				      ** Get indata values from the CPU AD converter
 				      */
-				      abInData[ 0 ] = 0xAB;
-				      abInData[ 1 ] = 0xCD;
+				      //abInData[ 0 ] = 0xAB;
+				    //  abInData[ 1 ] = 0xCD;
 
 				      /*
 				      ** Write the In Data values to the AnyBus-IC
 				      */
-				      ABIC_WriteInData( 0, 1, abInData );
+				     // ABIC_WriteInData( 0, 1, abInData );
 
 					   TM_StartTimer();
 					   while( !TM_TimeOut() );
@@ -602,6 +577,13 @@ abInData[1]=0x00;
 				      ** Read the Out Data values from the AnyBus-IC
 				      */
 				      fResult = ABIC_ReadOutData( 0, 1, abOutData );
+
+					     ABIC_WriteInData( 0, 1, abOutData );
+
+					   TM_StartTimer();
+					   while( !TM_TimeOut() );
+					   TM_StartTimer();
+					   while( !TM_TimeOut() );
 
 				      if( fResult )
 				      {
@@ -642,11 +624,10 @@ abInData[1]=0x00;
 
 		}
 		
- #endif		
+		
 		//if(cana_rx_flag) cana_rx_data_update();
 		//if(canb_rx_flag) canb_rx_data_update();
 	}
-
 }
 
 

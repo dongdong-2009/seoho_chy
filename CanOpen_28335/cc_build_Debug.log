@@ -1,52 +1,6 @@
 ---------------------------  ex08_can_f.pjt - Debug  ---------------------------
-[ADC.c] "C:\CCStudio_v3.3\C2000\cgtools\bin\cl2000" -gt -fr"D:/work/SEOHO_VD/CanOpen_28335_110216_CHOI/Debug" -i"./DSP2833x_include" -d"_DEBUG" -d"LARGE_MODEL" -ml -mt -v28 --float_support=fpu32 -@"Debug.lkf" "ADC.c"
-
-[abic.c] "C:\CCStudio_v3.3\C2000\cgtools\bin\cl2000" -gt -fr"D:/work/SEOHO_VD/CanOpen_28335_110216_CHOI/Debug" -i"./DSP2833x_include" -d"_DEBUG" -d"LARGE_MODEL" -ml -mt -v28 --float_support=fpu32 -@"../Debug.lkf" "abic.c"
-
-[crc.c] "C:\CCStudio_v3.3\C2000\cgtools\bin\cl2000" -gt -fr"D:/work/SEOHO_VD/CanOpen_28335_110216_CHOI/Debug" -i"./DSP2833x_include" -d"_DEBUG" -d"LARGE_MODEL" -ml -mt -v28 --float_support=fpu32 -@"../Debug.lkf" "crc.c"
-
-[mb.c] "C:\CCStudio_v3.3\C2000\cgtools\bin\cl2000" -gt -fr"D:/work/SEOHO_VD/CanOpen_28335_110216_CHOI/Debug" -i"./DSP2833x_include" -d"_DEBUG" -d"LARGE_MODEL" -ml -mt -v28 --float_support=fpu32 -@"../Debug.lkf" "mb.c"
-
-[debug_2833x.c] "C:\CCStudio_v3.3\C2000\cgtools\bin\cl2000" -gt -fr"D:/work/SEOHO_VD/CanOpen_28335_110216_CHOI/Debug" -i"./DSP2833x_include" -d"_DEBUG" -d"LARGE_MODEL" -ml -mt -v28 --float_support=fpu32 -@"Debug.lkf" "debug_2833x.c"
-
-[DSK2833x_GlobalFunc.c] "C:\CCStudio_v3.3\C2000\cgtools\bin\cl2000" -gt -fr"D:/work/SEOHO_VD/CanOpen_28335_110216_CHOI/Debug" -i"./DSP2833x_include" -d"_DEBUG" -d"LARGE_MODEL" -ml -mt -v28 --float_support=fpu32 -@"Debug.lkf" "DSK2833x_GlobalFunc.c"
-
-[DSP2833x_ADC_cal.asm] "C:\CCStudio_v3.3\C2000\cgtools\bin\cl2000" -gt -fr"D:/work/SEOHO_VD/CanOpen_28335_110216_CHOI/Debug" -i"./DSP2833x_include" -d"_DEBUG" -d"LARGE_MODEL" -ml -mt -v28 --float_support=fpu32 -@"../Debug.lkf" "DSP2833x_ADC_cal.asm"
-
-[DSP2833x_CodeStartBranch.asm] "C:\CCStudio_v3.3\C2000\cgtools\bin\cl2000" -gt -fr"D:/work/SEOHO_VD/CanOpen_28335_110216_CHOI/Debug" -i"./DSP2833x_include" -d"_DEBUG" -d"LARGE_MODEL" -ml -mt -v28 --float_support=fpu32 -@"../Debug.lkf" "DSP2833x_CodeStartBranch.asm"
-
-[DSP2833x_CpuTimers.c] "C:\CCStudio_v3.3\C2000\cgtools\bin\cl2000" -gt -fr"D:/work/SEOHO_VD/CanOpen_28335_110216_CHOI/Debug" -i"./DSP2833x_include" -d"_DEBUG" -d"LARGE_MODEL" -ml -mt -v28 --float_support=fpu32 -@"../Debug.lkf" "DSP2833x_CpuTimers.c"
-
-[DSP2833x_CSMPasswords.asm] "C:\CCStudio_v3.3\C2000\cgtools\bin\cl2000" -gt -fr"D:/work/SEOHO_VD/CanOpen_28335_110216_CHOI/Debug" -i"./DSP2833x_include" -d"_DEBUG" -d"LARGE_MODEL" -ml -mt -v28 --float_support=fpu32 -@"../Debug.lkf" "DSP2833x_CSMPasswords.asm"
-
-[DSP2833x_DefaultIsr.c] "C:\CCStudio_v3.3\C2000\cgtools\bin\cl2000" -gt -fr"D:/work/SEOHO_VD/CanOpen_28335_110216_CHOI/Debug" -i"./DSP2833x_include" -d"_DEBUG" -d"LARGE_MODEL" -ml -mt -v28 --float_support=fpu32 -@"../Debug.lkf" "DSP2833x_DefaultIsr.c"
-
-[DSP2833x_ECan.c] "C:\CCStudio_v3.3\C2000\cgtools\bin\cl2000" -gt -fr"D:/work/SEOHO_VD/CanOpen_28335_110216_CHOI/Debug" -i"./DSP2833x_include" -d"_DEBUG" -d"LARGE_MODEL" -ml -mt -v28 --float_support=fpu32 -@"../Debug.lkf" "DSP2833x_ECan.c"
-
-[DSP2833x_GlobalVariableDefs.c] "C:\CCStudio_v3.3\C2000\cgtools\bin\cl2000" -gt -fr"D:/work/SEOHO_VD/CanOpen_28335_110216_CHOI/Debug" -i"./DSP2833x_include" -d"_DEBUG" -d"LARGE_MODEL" -ml -mt -v28 --float_support=fpu32 -@"../Debug.lkf" "DSP2833x_GlobalVariableDefs.c"
-
-[DSP2833x_MemCopy.c] "C:\CCStudio_v3.3\C2000\cgtools\bin\cl2000" -gt -fr"D:/work/SEOHO_VD/CanOpen_28335_110216_CHOI/Debug" -i"./DSP2833x_include" -d"_DEBUG" -d"LARGE_MODEL" -ml -mt -v28 --float_support=fpu32 -@"../Debug.lkf" "DSP2833x_MemCopy.c"
-
-[DSP2833x_PieCtrl.c] "C:\CCStudio_v3.3\C2000\cgtools\bin\cl2000" -gt -fr"D:/work/SEOHO_VD/CanOpen_28335_110216_CHOI/Debug" -i"./DSP2833x_include" -d"_DEBUG" -d"LARGE_MODEL" -ml -mt -v28 --float_support=fpu32 -@"../Debug.lkf" "DSP2833x_PieCtrl.c"
-
-[DSP2833x_PieVect.c] "C:\CCStudio_v3.3\C2000\cgtools\bin\cl2000" -gt -fr"D:/work/SEOHO_VD/CanOpen_28335_110216_CHOI/Debug" -i"./DSP2833x_include" -d"_DEBUG" -d"LARGE_MODEL" -ml -mt -v28 --float_support=fpu32 -@"../Debug.lkf" "DSP2833x_PieVect.c"
-
-[DSP2833x_SysCtrl.c] "C:\CCStudio_v3.3\C2000\cgtools\bin\cl2000" -gt -fr"D:/work/SEOHO_VD/CanOpen_28335_110216_CHOI/Debug" -i"./DSP2833x_include" -d"_DEBUG" -d"LARGE_MODEL" -ml -mt -v28 --float_support=fpu32 -@"../Debug.lkf" "DSP2833x_SysCtrl.c"
-
-[DSP2833x_usDelay.asm] "C:\CCStudio_v3.3\C2000\cgtools\bin\cl2000" -gt -fr"D:/work/SEOHO_VD/CanOpen_28335_110216_CHOI/Debug" -i"./DSP2833x_include" -d"_DEBUG" -d"LARGE_MODEL" -ml -mt -v28 --float_support=fpu32 -@"../Debug.lkf" "DSP2833x_usDelay.asm"
-
-[eCAN.c] "C:\CCStudio_v3.3\C2000\cgtools\bin\cl2000" -gt -fr"D:/work/SEOHO_VD/CanOpen_28335_110216_CHOI/Debug" -i"./DSP2833x_include" -d"_DEBUG" -d"LARGE_MODEL" -ml -mt -v28 --float_support=fpu32 -@"Debug.lkf" "eCAN.c"
-
-[ex08_can_f.c] "C:\CCStudio_v3.3\C2000\cgtools\bin\cl2000" -gt -fr"D:/work/SEOHO_VD/CanOpen_28335_110216_CHOI/Debug" -i"./DSP2833x_include" -d"_DEBUG" -d"LARGE_MODEL" -ml -mt -v28 --float_support=fpu32 -@"Debug.lkf" "ex08_can_f.c"
-"ex08_can_f.c", line 373: warning: variable "fResult" was declared but never referenced
-
-[I2C_eeprom.c] "C:\CCStudio_v3.3\C2000\cgtools\bin\cl2000" -gt -fr"D:/work/SEOHO_VD/CanOpen_28335_110216_CHOI/Debug" -i"./DSP2833x_include" -d"_DEBUG" -d"LARGE_MODEL" -ml -mt -v28 --float_support=fpu32 -@"Debug.lkf" "I2C_eeprom.c"
-
-[SCI_B.c] "C:\CCStudio_v3.3\C2000\cgtools\bin\cl2000" -gt -fr"D:/work/SEOHO_VD/CanOpen_28335_110216_CHOI/Debug" -i"./DSP2833x_include" -d"_DEBUG" -d"LARGE_MODEL" -ml -mt -v28 --float_support=fpu32 -@"Debug.lkf" "SCI_B.c"
-
-[SCI_C_usb.c] "C:\CCStudio_v3.3\C2000\cgtools\bin\cl2000" -gt -fr"D:/work/SEOHO_VD/CanOpen_28335_110216_CHOI/Debug" -i"./DSP2833x_include" -d"_DEBUG" -d"LARGE_MODEL" -ml -mt -v28 --float_support=fpu32 -@"Debug.lkf" "SCI_C_usb.c"
-
-[SPI_dac.c] "C:\CCStudio_v3.3\C2000\cgtools\bin\cl2000" -gt -fr"D:/work/SEOHO_VD/CanOpen_28335_110216_CHOI/Debug" -i"./DSP2833x_include" -d"_DEBUG" -d"LARGE_MODEL" -ml -mt -v28 --float_support=fpu32 -@"Debug.lkf" "SPI_dac.c"
+[ex08_can_f.c] "C:\CCStudio_v3.3\C2000\cgtools\bin\cl2000" -gt -fr"D:/work/SEOHO_VD/CanOpen_28335_110217/Debug" -i"./DSP2833x_include" -d"_DEBUG" -d"LARGE_MODEL" -ml -mt -v28 --float_support=fpu32 -@"Debug.lkf" "ex08_can_f.c"
+"ex08_can_f.c", line 372: warning: variable "abInData" was declared but never referenced
 
 [Linking...] "C:\CCStudio_v3.3\C2000\cgtools\bin\cl2000" -@"Debug.lkf"
 <Linking>

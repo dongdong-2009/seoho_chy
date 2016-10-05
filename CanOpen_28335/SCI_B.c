@@ -235,8 +235,7 @@ interrupt void scib_rx_isr(void){
 }
 
 // SCI-B 초기화 함수
-void scib_init(void)
-{
+void scib_init(){
 	ScibRegs.SCIFFTX.all = 0x8000;			// FIFO reset
  	ScibRegs.SCIFFCT.all = 0x4000;			// Clear ABD(Auto baud bit)
  	
@@ -249,16 +248,30 @@ void scib_init(void)
 	ScibRegs.SCICTL2.bit.RXBKINTENA = 1;	// RX/BK INT ENA=1,
 	ScibRegs.SCICTL2.bit.TXINTENA = 1;		// TX INT ENA=1,
 
-  	ScibRegs.SCIHBAUD = SCIB_BRR_VAL >> 8;
-  	ScibRegs.SCILBAUD = SCIB_BRR_VAL & 0xff;
+    ScibRegs.SCIHBAUD = SCIB_BRR_VAL >> 8;
+    ScibRegs.SCILBAUD = SCIB_BRR_VAL & 0xff;
 
 	ScibRegs.SCICTL1.all = 0x0023;			// Relinquish SCI from Reset  
     
 	// Initialize SCI-B RX interrupt
-  	EALLOW;
+    EALLOW;
 	PieVectTable.SCIRXINTB = &scib_rx_isr;
-  	PieVectTable.SCITXINTB = &scib_tx_isr;
+	PieVectTable.SCITXINTB = &scib_tx_isr;
+   #if 1
+    /* Enable internal pull-up for the selected pins */
+	GpioCtrlRegs.GPAPUD.bit.GPIO11 = 0; // Enable pull-up for GPIO11 (SCIRXDB)
+	GpioCtrlRegs.GPAPUD.bit.GPIO9 = 0;  // Enable pull-up for GPIO9  (SCITXDB)
 
+	/* Set qualification for selected pins to asynch only */
+	GpioCtrlRegs.GPAQSEL1.bit.GPIO11 = 3;  // Asynch input GPIO11 (SCIRXDB)
+
+	/* Configure SCI-B pins using GPIO regs*/
+	GpioCtrlRegs.GPAMUX1.bit.GPIO11 = 2;   // Configure GPIO11 for SCIRXDB operation
+	GpioCtrlRegs.GPAMUX1.bit.GPIO9 = 2;    // Configure GPIO9 for SCITXDB operation
+#endif
+#if 0
+//========================================================================================
+//========================================================================================
     /* Enable internal pull-up for the selected pins */
 	GpioCtrlRegs.GPAPUD.bit.GPIO19 = 0; // Enable pull-up for GPIO19 (SCIRXDB)
 	GpioCtrlRegs.GPAPUD.bit.GPIO18 = 0;  // Enable pull-up for GPIO18  (SCITXDB)
@@ -269,16 +282,18 @@ void scib_init(void)
 	/* Configure SCI-B pins using GPIO regs*/
 	GpioCtrlRegs.GPAMUX2.bit.GPIO19 = 2;   // Configure GPIO19 for SCIRXDB operation
 	GpioCtrlRegs.GPAMUX2.bit.GPIO18 = 2;    // Configure GPIO18 for SCITXDB operation
-
-	
+	EDIS;
+//========================================================================================
+//========================================================================================
+#endif	
 	EDIS;
 
-  // Enable CPU INT9 for SCI-B
+    // Enable CPU INT9 for SCI-B
 	IER |= M_INT9;
 	
-  // Enable SCI-B RX INT in the PIE: Group 9 interrupt 3
+    // Enable SCI-B RX INT in the PIE: Group 9 interrupt 3
 	PieCtrlRegs.PIEIER9.bit.INTx3 = 1;
 
-  // Enable SCI-B TX INT in the PIE: Group 9 interrupt 4
+    // Enable SCI-B TX INT in the PIE: Group 9 interrupt 4
 	PieCtrlRegs.PIEIER9.bit.INTx4 = 1;
 }

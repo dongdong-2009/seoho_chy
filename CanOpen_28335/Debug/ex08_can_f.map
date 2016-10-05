@@ -1,7 +1,7 @@
 ******************************************************************************
              TMS320C2000 Linker PC v5.2.4                      
 ******************************************************************************
->> Linked Wed Feb 16 22:49:22 2011
+>> Linked Wed Feb 16 23:20:47 2011
 
 OUTPUT FILE NAME:   <./Debug/ex08_can_f.out>
 ENTRY POINT SYMBOL: "code_start"  address: 0033fff6
@@ -13,7 +13,7 @@ MEMORY CONFIGURATION
 ----------------------  --------  ---------  --------  --------  ----  --------
 PAGE 0:
   RAML_CODE             00008000   00004000  0000040b  00003bf5  RWIX
-  FLASH_CODE            00308000   00037f80  00001eac  000360d4  RWIX
+  FLASH_CODE            00308000   00037f80  00001f47  00036039  RWIX
   CSM_RSVD              0033ff80   00000076  00000076  00000000  RWIX
   BEGIN                 0033fff6   00000002  00000002  00000000  RWIX
   CSM_CODE              0033fff8   00000008  00000008  00000000  RWIX
@@ -103,52 +103,53 @@ ramfuncs   0    00308000    0000040b     RUN ADDR = 00008000
                   003083ec    0000001b     DSP2833x_SysCtrl.obj (ramfuncs)
                   00308407    00000004     DSP2833x_usDelay.obj (ramfuncs)
 
-.text      0    0030840b    0000164e     
+.text      0    0030840b    000016ad     
                   0030840b    0000049e     debug_2833x.obj (.text)
                   003088a9    000003be     DSK2833x_GlobalFunc.obj (.text)
-                  00308c67    00000316     DSP2833x_DefaultIsr.obj (.text)
-                  00308f7d    000002ea     ex08_can_f.obj (.text)
-                  00309267    00000130     DSP2833x_ECan.obj (.text)
-                  00309397    000000f5     DSP2833x_SysCtrl.obj (.text)
-                  0030948c    000000c6     eCAN.obj (.text)
-                  00309552    000000bc     SCI_B.obj (.text)
-                  0030960e    0000009a     abic.obj (.text)
-                  003096a8    0000008e     I2C_eeprom.obj (.text)
-                  00309736    00000089     mb.obj (.text)
-                  003097bf    0000007a     DSP2833x_CpuTimers.obj (.text)
-                  00309839    00000063     SCI_C_usb.obj (.text)
-                  0030989c    00000063     SPI_dac.obj (.text)
-                  003098ff    00000046     rts2800_fpu32.lib : boot.obj (.text)
-                  00309945    00000038     ADC.obj (.text)
-                  0030997d    00000028     DSP2833x_PieCtrl.obj (.text)
-                  003099a5    00000026     crc.obj (.text)
-                  003099cb    00000020     DSP2833x_PieVect.obj (.text)
-                  003099eb    0000001b     rts2800_fpu32.lib : args_main.obj (.text)
-                  00309a06    00000019                       : exit.obj (.text)
-                  00309a1f    00000017     DSP2833x_MemCopy.obj (.text)
-                  00309a36    0000000b     rts2800_fpu32.lib : u_div.obj (.text)
-                  00309a41    00000009                       : _lock.obj (.text)
-                  00309a4a    00000008     DSP2833x_CodeStartBranch.obj (.text)
-                  00309a52    00000007     rts2800_fpu32.lib : memset.obj (.text)
+                  00308c67    00000349     ex08_can_f.obj (.text)
+                  00308fb0    00000316     DSP2833x_DefaultIsr.obj (.text)
+                  003092c6    00000130     DSP2833x_ECan.obj (.text)
+                  003093f6    000000f5     DSP2833x_SysCtrl.obj (.text)
+                  003094eb    000000c6     eCAN.obj (.text)
+                  003095b1    000000bc     SCI_B.obj (.text)
+                  0030966d    0000009a     abic.obj (.text)
+                  00309707    0000008e     I2C_eeprom.obj (.text)
+                  00309795    00000089     mb.obj (.text)
+                  0030981e    0000007a     DSP2833x_CpuTimers.obj (.text)
+                  00309898    00000063     SCI_C_usb.obj (.text)
+                  003098fb    00000063     SPI_dac.obj (.text)
+                  0030995e    00000046     rts2800_fpu32.lib : boot.obj (.text)
+                  003099a4    00000038     ADC.obj (.text)
+                  003099dc    00000028     DSP2833x_PieCtrl.obj (.text)
+                  00309a04    00000026     crc.obj (.text)
+                  00309a2a    00000020     DSP2833x_PieVect.obj (.text)
+                  00309a4a    0000001b     rts2800_fpu32.lib : args_main.obj (.text)
+                  00309a65    00000019                       : exit.obj (.text)
+                  00309a7e    00000017     DSP2833x_MemCopy.obj (.text)
+                  00309a95    0000000b     rts2800_fpu32.lib : u_div.obj (.text)
+                  00309aa0    00000009                       : _lock.obj (.text)
+                  00309aa9    00000008     DSP2833x_CodeStartBranch.obj (.text)
+                  00309ab1    00000007     rts2800_fpu32.lib : memset.obj (.text)
 
-.econst    0    00309a5a    00000340     
-                  00309a5a    00000100     DSP2833x_PieVect.obj (.econst)
-                  00309b5a    00000100     crc.obj (.econst:_abCrcHi)
-                  00309c5a    00000100     crc.obj (.econst:_abCrcLo)
-                  00309d5a    00000026     ex08_can_f.obj (.econst:.string)
-                  00309d80    0000000f     SCI_C_usb.obj (.econst:.string)
-                  00309d8f    00000001     --HOLE-- [fill = 0]
-                  00309d90    0000000a     debug_2833x.obj (.econst:.string)
+.econst    0    00309ab8    00000380     
+                  00309ab8    00000100     DSP2833x_PieVect.obj (.econst)
+                  00309bb8    00000100     crc.obj (.econst:_abCrcHi)
+                  00309cb8    00000100     crc.obj (.econst:_abCrcLo)
+                  00309db8    00000065     ex08_can_f.obj (.econst:.string)
+                  00309e1d    00000001     --HOLE-- [fill = 0]
+                  00309e1e    0000000f     SCI_C_usb.obj (.econst:.string)
+                  00309e2d    00000001     --HOLE-- [fill = 0]
+                  00309e2e    0000000a     debug_2833x.obj (.econst:.string)
 
-.cinit     0    00309d9a    00000113     
-                  00309d9a    00000092     ex08_can_f.obj (.cinit)
-                  00309e2c    0000002d     abic.obj (.cinit)
-                  00309e59    0000002a     debug_2833x.obj (.cinit)
-                  00309e83    0000000c     SCI_B.obj (.cinit)
-                  00309e8f    0000000a     rts2800_fpu32.lib : _lock.obj (.cinit)
-                  00309e99    0000000a                       : exit.obj (.cinit)
-                  00309ea3    00000008     SCI_C_usb.obj (.cinit)
-                  00309eab    00000002     --HOLE-- [fill = 0]
+.cinit     0    00309e38    0000010f     
+                  00309e38    0000008e     ex08_can_f.obj (.cinit)
+                  00309ec6    0000002d     abic.obj (.cinit)
+                  00309ef3    0000002a     debug_2833x.obj (.cinit)
+                  00309f1d    0000000c     SCI_B.obj (.cinit)
+                  00309f29    0000000a     rts2800_fpu32.lib : _lock.obj (.cinit)
+                  00309f33    0000000a                       : exit.obj (.cinit)
+                  00309f3d    00000008     SCI_C_usb.obj (.cinit)
+                  00309f45    00000002     --HOLE-- [fill = 0]
 
 csm_rsvd   0    0033ff80    00000076     
                   0033ff80    00000076     DSP2833x_CSMPasswords.obj (csm_rsvd)
@@ -373,8 +374,8 @@ I2caRegsFile
                   0000c07f    00000001     --HOLE--
                   0000c080    00000073     debug_2833x.obj (.ebss)
                   0000c0f3    0000000d     --HOLE--
-                  0000c100    0000003e     ex08_can_f.obj (.ebss)
-                  0000c13e    00000002     --HOLE--
+                  0000c100    00000038     ex08_can_f.obj (.ebss)
+                  0000c138    00000008     --HOLE--
                   0000c140    00000035     SCI_C_usb.obj (.ebss)
                   0000c175    0000000b     --HOLE--
                   0000c180    00000021     abic.obj (.ebss)
@@ -395,19 +396,19 @@ GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name
 address    name
 --------   ----
 0030840b   .text
-00309a06   C$$EXIT
-00309a36   U$$DIV
-00309a3b   U$$MOD
-0030960e   _ABIC_AutoBaud
-00309625   _ABIC_NormalMode
-00309644   _ABIC_ReadOutData
-00309675   _ABIC_WriteInData
-00308d4d   _ADCINT_ISR
+00309a65   C$$EXIT
+00309a95   U$$DIV
+00309a9a   U$$MOD
+0030966d   _ABIC_AutoBaud
+00309684   _ABIC_NormalMode
+003096a3   _ABIC_ReadOutData
+003096d5   _ABIC_WriteInData
+00309096   _ADCINT_ISR
 00380080   _ADC_cal
 00000b00   _AdcMirror
 00007100   _AdcRegs
 003089de   _Clear_Digital_OutputBit
-003097fe   _ConfigCpuTimer
+0030985d   _ConfigCpuTimer
 0000c1b2   _CpuTimer0
 00000c00   _CpuTimer0Regs
 0000c1a2   _CpuTimer1
@@ -416,29 +417,29 @@ address    name
 00000c10   _CpuTimer2Regs
 0033fff8   _CsmPwl
 00000ae0   _CsmRegs
-0030945b   _CsmUnlock
-003098d2   _DAC_Out
-00308c7b   _DATALOG_ISR
-00308e6f   _DINTCH1_ISR
-00308e79   _DINTCH2_ISR
-00308e83   _DINTCH3_ISR
-00308e8d   _DINTCH4_ISR
-00308e97   _DINTCH5_ISR
-00308ea1   _DINTCH6_ISR
+003094ba   _CsmUnlock
+00309931   _DAC_Out
+00308fc4   _DATALOG_ISR
+003091b8   _DINTCH1_ISR
+003091c2   _DINTCH2_ISR
+003091cc   _DINTCH3_ISR
+003091d6   _DINTCH4_ISR
+003091e0   _DINTCH5_ISR
+003091ea   _DINTCH6_ISR
 00008407   _DSP28x_usDelay
 00000880   _DevEmuRegs
-003093aa   _DisableDog
+00309409   _DisableDog
 00001000   _DmaRegs
-00308efb   _ECAN0INTA_ISR
-00308f0f   _ECAN0INTB_ISR
-00308f05   _ECAN1INTA_ISR
-00308f19   _ECAN1INTB_ISR
-00308de3   _ECAP1_INT_ISR
-00308ded   _ECAP2_INT_ISR
-00308df7   _ECAP3_INT_ISR
-00308e01   _ECAP4_INT_ISR
-00308e0b   _ECAP5_INT_ISR
-00308e15   _ECAP6_INT_ISR
+00309244   _ECAN0INTA_ISR
+00309258   _ECAN0INTB_ISR
+0030924e   _ECAN1INTA_ISR
+00309262   _ECAN1INTB_ISR
+0030912c   _ECAP1_INT_ISR
+00309136   _ECAP2_INT_ISR
+00309140   _ECAP3_INT_ISR
+0030914a   _ECAP4_INT_ISR
+00309154   _ECAP5_INT_ISR
+0030915e   _ECAP6_INT_ISR
 00006040   _ECanaLAMRegs
 000060c0   _ECanaMOTORegs
 00006080   _ECanaMOTSRegs
@@ -455,134 +456,134 @@ address    name
 00006a60   _ECap4Regs
 00006a80   _ECap5Regs
 00006aa0   _ECap6Regs
-00308c8f   _EMUINT_ISR
-00308da7   _EPWM1_INT_ISR
-00308d6b   _EPWM1_TZINT_ISR
-00308db1   _EPWM2_INT_ISR
-00308d75   _EPWM2_TZINT_ISR
-00308dbb   _EPWM3_INT_ISR
-00308d7f   _EPWM3_TZINT_ISR
-00308dc5   _EPWM4_INT_ISR
-00308d89   _EPWM4_TZINT_ISR
-00308dcf   _EPWM5_INT_ISR
-00308d93   _EPWM5_TZINT_ISR
-00308dd9   _EPWM6_INT_ISR
-00308d9d   _EPWM6_TZINT_ISR
+00308fd8   _EMUINT_ISR
+003090f0   _EPWM1_INT_ISR
+003090b4   _EPWM1_TZINT_ISR
+003090fa   _EPWM2_INT_ISR
+003090be   _EPWM2_TZINT_ISR
+00309104   _EPWM3_INT_ISR
+003090c8   _EPWM3_TZINT_ISR
+0030910e   _EPWM4_INT_ISR
+003090d2   _EPWM4_TZINT_ISR
+00309118   _EPWM5_INT_ISR
+003090dc   _EPWM5_TZINT_ISR
+00309122   _EPWM6_INT_ISR
+003090e6   _EPWM6_TZINT_ISR
 00006800   _EPwm1Regs
 00006840   _EPwm2Regs
 00006880   _EPwm3Regs
 000068c0   _EPwm4Regs
 00006900   _EPwm5Regs
 00006940   _EPwm6Regs
-00308e1f   _EQEP1_INT_ISR
-00308e29   _EQEP2_INT_ISR
+00309168   _EQEP1_INT_ISR
+00309172   _EQEP2_INT_ISR
 00006b00   _EQep1Regs
 00006b40   _EQep2Regs
-0030999c   _EnableInterrupts
+003099fb   _EnableInterrupts
 00000a80   _FlashRegs
-003099a5   _GenerateCrc
+00309a04   _GenerateCrc
 00308a9b   _Get_DIP_Data
 003089a8   _Get_Digital_Input
 00308a93   _Get_SW_Data
 00006f80   _GpioCtrlRegs
 00006fc0   _GpioDataRegs
 00006fe0   _GpioIntRegs
-00308eab   _I2CINT1A_ISR
-00308eb5   _I2CINT2A_ISR
+003091f4   _I2CINT1A_ISR
+003091fe   _I2CINT2A_ISR
 00007900   _I2caRegs
-00308ca3   _ILLEGAL_ISR
-00308c67   _INT13_ISR
-00308c71   _INT14_ISR
-003097bf   _InitCpuTimers
-00309267   _InitECan
-00309368   _InitECanGpio
-0030926c   _InitECana
-0030936d   _InitECanaGpio
-003092ea   _InitECanb
-00309383   _InitECanbGpio
+00308fec   _ILLEGAL_ISR
+00308fb0   _INT13_ISR
+00308fba   _INT14_ISR
+0030981e   _InitCpuTimers
+003092c6   _InitECan
+003093c7   _InitECanGpio
+003092cb   _InitECana
+003093cc   _InitECanaGpio
+00309349   _InitECanb
+003093e2   _InitECanbGpio
 000083ec   _InitFlash
-00309400   _InitPeripheralClocks
-0030997d   _InitPieCtrl
-003099cb   _InitPieVectTable
-003093b2   _InitPll
-00309397   _InitSysCtrl
-00309945   _Init_Adc_Mode
+0030945f   _InitPeripheralClocks
+003099dc   _InitPieCtrl
+00309a2a   _InitPieVectTable
+00309411   _InitPll
+003093f6   _InitSysCtrl
+003099a4   _Init_Adc_Mode
 00308968   _Init_DSK_Gpio
 003089f2   _Init_Ext_Bus
-0030918d   _Init_External_Interrupt
-003096a8   _Init_I2C_eeprom
-0030989c   _Init_Spi_Dac
-00308f5f   _LUF_ISR
-00308f55   _LVF_ISR
-00309743   _MB_SendRecModbusMessage
+00308e77   _Init_External_Interrupt
+00309707   _Init_I2C_eeprom
+003098fb   _Init_Spi_Dac
+003092a8   _LUF_ISR
+0030929e   _LVF_ISR
+003097a2   _MB_SendRecModbusMessage
 0000c07c   _MB_bCRCCounter
 0000c07e   _MB_bTimeOutCounter
 0000c07d   _MB_iTimeOutTime
-00308e5b   _MRINTA_ISR
-00308e47   _MRINTB_ISR
-00308e65   _MXINTA_ISR
-00308e51   _MXINTB_ISR
+003091a4   _MRINTA_ISR
+00309190   _MRINTB_ISR
+003091ae   _MXINTA_ISR
+0030919a   _MXINTB_ISR
 00005000   _McbspaRegs
 00005040   _McbspbRegs
-00309a1f   _MemCopy
-00308c99   _NMI_ISR
-00308f69   _PIE_RESERVED
+00309a7e   _MemCopy
+00308fe2   _NMI_ISR
+003092b2   _PIE_RESERVED
 00380090   _PartIdRegs
 00000ce0   _PieCtrlRegs
 00000d00   _PieVectTable
-00309a5a   _PieVectTableInit
-00308c85   _RTOSINT_ISR
+00309ab8   _PieVectTableInit
+00308fce   _RTOSINT_ISR
 0030840b   _RamfuncsLoadEnd
 00308000   _RamfuncsLoadStart
 00008000   _RamfuncsRunStart
-003096fe   _Read_EEPROM_Data
-00308ed3   _SCIRXINTA_ISR
-00308ee7   _SCIRXINTB_ISR
-00308ebf   _SCIRXINTC_ISR
-00308edd   _SCITXINTA_ISR
-00308ef1   _SCITXINTB_ISR
-00308ec9   _SCITXINTC_ISR
-003095cf   _SD_CharReceived
-003095ba   _SD_GetChar
-00308d25   _SEQ1INT_ISR
-00308d2f   _SEQ2INT_ISR
-00308e33   _SPIRXINTA_ISR
-00308e3d   _SPITXINTA_ISR
+0030975d   _Read_EEPROM_Data
+0030921c   _SCIRXINTA_ISR
+00309230   _SCIRXINTB_ISR
+00309208   _SCIRXINTC_ISR
+00309226   _SCITXINTA_ISR
+0030923a   _SCITXINTB_ISR
+00309212   _SCITXINTC_ISR
+0030962e   _SD_CharReceived
+00309619   _SD_GetChar
+0030906e   _SEQ1INT_ISR
+00309078   _SEQ2INT_ISR
+0030917c   _SPIRXINTA_ISR
+00309186   _SPITXINTA_ISR
 00007050   _SciaRegs
 00007750   _ScibRegs
 00007770   _ScicRegs
-0030948c   _SendDataToECanA
-003094b6   _SendDataToECanB
-003093a0   _ServiceDog
+003094eb   _SendDataToECanA
+00309515   _SendDataToECanB
+003093ff   _ServiceDog
 003089b5   _Set_Digital_Output
 003089cb   _Set_Digital_OutputBit
 00308aa4   _Set_LED_Data
 00007040   _SpiaRegs
 00007010   _SysCtrlRegs
-00308d57   _TINT0_ISR
-00309736   _TM_StartTimer
-0030973a   _TM_TimeOut
-00308d07   _USER10_ISR
-00308d11   _USER11_ISR
-00308d1b   _USER12_ISR
-00308cad   _USER1_ISR
-00308cb7   _USER2_ISR
-00308cc1   _USER3_ISR
-00308ccb   _USER4_ISR
-00308cd5   _USER5_ISR
-00308cdf   _USER6_ISR
-00308ce9   _USER7_ISR
-00308cf3   _USER8_ISR
-00308cfd   _USER9_ISR
-00308d61   _WAKEINT_ISR
-003096d1   _Write_EEPROM_Data
-00308d39   _XINT1_ISR
-00308d43   _XINT2_ISR
-00308f23   _XINT3_ISR
-00308f2d   _XINT4_ISR
-00308f37   _XINT5_ISR
-00308f41   _XINT6_ISR
-00308f4b   _XINT7_ISR
+003090a0   _TINT0_ISR
+00309795   _TM_StartTimer
+00309799   _TM_TimeOut
+00309050   _USER10_ISR
+0030905a   _USER11_ISR
+00309064   _USER12_ISR
+00308ff6   _USER1_ISR
+00309000   _USER2_ISR
+0030900a   _USER3_ISR
+00309014   _USER4_ISR
+0030901e   _USER5_ISR
+00309028   _USER6_ISR
+00309032   _USER7_ISR
+0030903c   _USER8_ISR
+00309046   _USER9_ISR
+003090aa   _WAKEINT_ISR
+00309730   _Write_EEPROM_Data
+00309082   _XINT1_ISR
+0030908c   _XINT2_ISR
+0030926c   _XINT3_ISR
+00309276   _XINT4_ISR
+00309280   _XINT5_ISR
+0030928a   _XINT6_ISR
+00309294   _XINT7_ISR
 00007070   _XIntruptRegs
 00000b20   _XintfRegs
 00000600   __STACK_END
@@ -590,53 +591,51 @@ address    name
 00000001   __TI_args_main
 ffffffff   ___binit__
 ffffffff   ___c_args__
-00309d9a   ___cinit__
-00309a59   ___etext__
+00309e38   ___cinit__
+00309ab8   ___etext__
 ffffffff   ___pinit__
 0030840b   ___text__
-003099eb   __args_main
+00309a4a   __args_main
 0000c078   __cleanup_ptr
 0000c07a   __dtors_ptr
 0000c076   __lock
-00309a49   __nop
-00309a45   __register_lock
-00309a41   __register_unlock
+00309aa8   __nop
+00309aa4   __register_lock
+00309aa0   __register_unlock
 00000400   __stack
 0000c074   __unlock
 0000c186   _abCheckRequest
-00309b5a   _abCrcHi
-00309c5a   _abCrcLo
-0000c12a   _abInData
-0000c124   _abOutData
+00309bb8   _abCrcHi
+00309cb8   _abCrcLo
 0000c196   _abRequest
 0000c18c   _abResponse
 0000c180   _abSetRequest
-00309a06   _abort
-0000c12e   _adc_a_data
-0000c136   _adc_b_data
+00309a65   _abort
+0000c128   _adc_a_data
+0000c130   _adc_b_data
 00008310   _adc_isr
 0030840b   _asc2hex
-003098ff   _c_int00
-00309097   _can_key_process
-003090e7   _cana_rx_data_update
-0000c118   _cana_rx_flag
-0000c126   _cana_rx_high_data
-0000c11e   _cana_rx_id
-0000c103   _cana_rx_length
-0000c128   _cana_rx_low_data
-0030913a   _canb_rx_data_update
+0030995e   _c_int00
+00308d81   _can_key_process
+00308dd1   _cana_rx_data_update
+0000c102   _cana_rx_flag
+0000c11e   _cana_rx_high_data
+0000c11c   _cana_rx_id
+0000c104   _cana_rx_length
+0000c124   _cana_rx_low_data
+00308e24   _canb_rx_data_update
 0000c11b   _canb_rx_flag
-0000c120   _canb_rx_high_data
-0000c12c   _canb_rx_id
+0000c122   _canb_rx_high_data
+0000c126   _canb_rx_id
 0000c11a   _canb_rx_length
-0000c122   _canb_rx_low_data
-0000c109   _cont_key_cnt
-00308fe2   _cont_key_process
+0000c120   _canb_rx_low_data
+0000c115   _cont_key_cnt
+00308ccc   _cont_key_process
 00008000   _cpu_timer0_isr
 0000804d   _cpu_timer1_isr
 0000808c   _cpu_timer2_isr
-0000c102   _dac0_data
-0000c119   _dac1_data
+0000c110   _dac0_data
+0000c10d   _dac1_data
 0000c081   _debug_cnt
 0000c088   _debug_rd_addr
 0000c08a   _debug_rd_addr_tmp
@@ -650,26 +649,26 @@ ffffffff   ___pinit__
 0000c08e   _debug_wr_data
 0000c086   _debug_wr_size
 0000c084   _debug_wr_sum_flag
-0000c10f   _dip_sw_data
+0000c114   _dip_sw_data
 000081d0   _ecan0_inta_isr
 00008228   _ecan0_intb_isr
 0000820e   _ecan1_inta_isr
 00008266   _ecan1_intb_isr
-0000c10a   _eep_addr
-0000c101   _eep_read_data
-0000c10b   _eep_write_data
-00308fef   _eeprom_key_process
-00309a08   _exit
+0000c109   _eep_addr
+0000c10f   _eep_read_data
+0000c116   _eep_write_data
+00308cd9   _eeprom_key_process
+00309a67   _exit
 003088a9   _hex2_to_decimal
 00308422   _hex2asc
 003088ce   _hex4_to_decimal
-003094e0   _init_can
+0030953f   _init_can
 00308af6   _init_lcd
-0000c115   _input_data
-00308f7d   _key_check
-0000c108   _key_cnt
-0000c112   _key_code
-00308fb2   _key_process
+0000c112   _input_data
+00308c67   _key_check
+0000c118   _key_cnt
+0000c119   _key_code
+00308c9c   _key_process
 00308b6d   _lcd_clear
 00308b77   _lcd_clear_line
 00308b9e   _lcd_cursor_off
@@ -684,28 +683,28 @@ ffffffff   ___pinit__
 00308abf   _lcd_out2
 00308ba7   _lcd_putc
 00308bb3   _lcd_puts
-0000c111   _led_data
-0000c104   _m_cnt
-003091cf   _main
-00309a52   _memset
-0000c114   _output_data
-0000c113   _prev_key_code
-00308f73   _rsvd_ISR
+0000c101   _led_data
+0000c107   _m_cnt
+00308eb9   _main
+00309ab1   _memset
+0000c111   _output_data
+0000c117   _prev_key_code
+003092bc   _rsvd_ISR
 00308870   _sci_debug_init
 00008162   _scia_rx_isr
 0000811b   _scia_tx_isr
-003095d7   _scib_init
-00309552   _scib_putc
-00309582   _scib_puts
+00309636   _scib_init
+003095b1   _scib_putc
+003095e1   _scib_puts
 000083c6   _scib_rx_isr
-0000c116   _scib_rxd
+0000c10e   _scib_rxd
 0000c040   _scib_tx_buf
 0000c002   _scib_tx_end
 00008397   _scib_tx_isr
 0000c000   _scib_tx_pos
 000082af   _scic_rx_isr
 00008280   _scic_tx_isr
-00309863   _scic_usb_init
+003098c2   _scic_usb_init
 0000c003   _sd_s
 00308576   _state0_proc
 003086e3   _state1_proc
@@ -715,15 +714,14 @@ ffffffff   ___pinit__
 003087ae   _state5_proc
 003087dd   _state6_proc
 003087f5   _state7_proc
-0000c11c   _step
-0000c10e   _sw_data
-0000c100   _t_cnt0
-0000c105   _t_cnt1
-0000c110   _t_cnt2
+0000c113   _sw_data
+0000c105   _t_cnt0
+0000c100   _t_cnt1
+0000c106   _t_cnt2
 0000c001   _tttt
-00309839   _usb_putc
-0030984b   _usb_puts
-0000c117   _usb_rxd
+00309898   _usb_putc
+003098aa   _usb_puts
+0000c103   _usb_rxd
 0000c142   _usb_tx_buf
 0000c140   _usb_tx_end
 0000c141   _usb_tx_pos
@@ -732,18 +730,18 @@ ffffffff   ___pinit__
 003084d8   _write_txbuf_long
 0030842e   _write_txbuf_string
 00308488   _write_txbuf_word
-0000c106   _xint3_cnt
+0000c10c   _xint3_cnt
 000080cb   _xint3_isr
-0000c107   _xint4_cnt
+0000c10a   _xint4_cnt
 000080df   _xint4_isr
-0000c10c   _xint5_cnt
+0000c10b   _xint5_cnt
 000080f3   _xint5_isr
-0000c10d   _xint6_cnt
+0000c108   _xint6_cnt
 00008107   _xint6_isr
 ffffffff   binit
-00309d9a   cinit
+00309e38   cinit
 0033fff6   code_start
-00309a59   etext
+00309ab8   etext
 ffffffff   pinit
 
 
@@ -849,45 +847,42 @@ address    name
 0000c08c   _debug_wr_addr
 0000c08e   _debug_wr_data
 0000c0c0   _debug_tx_buf
-0000c100   _t_cnt0
-0000c101   _eep_read_data
-0000c102   _dac0_data
-0000c103   _cana_rx_length
-0000c104   _m_cnt
-0000c105   _t_cnt1
-0000c106   _xint3_cnt
-0000c107   _xint4_cnt
-0000c108   _key_cnt
-0000c109   _cont_key_cnt
-0000c10a   _eep_addr
-0000c10b   _eep_write_data
-0000c10c   _xint5_cnt
-0000c10d   _xint6_cnt
-0000c10e   _sw_data
-0000c10f   _dip_sw_data
-0000c110   _t_cnt2
-0000c111   _led_data
-0000c112   _key_code
-0000c113   _prev_key_code
-0000c114   _output_data
-0000c115   _input_data
-0000c116   _scib_rxd
-0000c117   _usb_rxd
-0000c118   _cana_rx_flag
-0000c119   _dac1_data
+0000c100   _t_cnt1
+0000c101   _led_data
+0000c102   _cana_rx_flag
+0000c103   _usb_rxd
+0000c104   _cana_rx_length
+0000c105   _t_cnt0
+0000c106   _t_cnt2
+0000c107   _m_cnt
+0000c108   _xint6_cnt
+0000c109   _eep_addr
+0000c10a   _xint4_cnt
+0000c10b   _xint5_cnt
+0000c10c   _xint3_cnt
+0000c10d   _dac1_data
+0000c10e   _scib_rxd
+0000c10f   _eep_read_data
+0000c110   _dac0_data
+0000c111   _output_data
+0000c112   _input_data
+0000c113   _sw_data
+0000c114   _dip_sw_data
+0000c115   _cont_key_cnt
+0000c116   _eep_write_data
+0000c117   _prev_key_code
+0000c118   _key_cnt
+0000c119   _key_code
 0000c11a   _canb_rx_length
 0000c11b   _canb_rx_flag
-0000c11c   _step
-0000c11e   _cana_rx_id
-0000c120   _canb_rx_high_data
-0000c122   _canb_rx_low_data
-0000c124   _abOutData
-0000c126   _cana_rx_high_data
-0000c128   _cana_rx_low_data
-0000c12a   _abInData
-0000c12c   _canb_rx_id
-0000c12e   _adc_a_data
-0000c136   _adc_b_data
+0000c11c   _cana_rx_id
+0000c11e   _cana_rx_high_data
+0000c120   _canb_rx_low_data
+0000c122   _canb_rx_high_data
+0000c124   _cana_rx_low_data
+0000c126   _canb_rx_id
+0000c128   _adc_a_data
+0000c130   _adc_b_data
 0000c140   _usb_tx_end
 0000c141   _usb_tx_pos
 0000c142   _usb_tx_buf
@@ -944,155 +939,155 @@ address    name
 00308bed   _lcd_hex8
 00308c29   _lcd_decimal_byte
 00308c40   _lcd_decimal_word
-00308c67   _INT13_ISR
-00308c71   _INT14_ISR
-00308c7b   _DATALOG_ISR
-00308c85   _RTOSINT_ISR
-00308c8f   _EMUINT_ISR
-00308c99   _NMI_ISR
-00308ca3   _ILLEGAL_ISR
-00308cad   _USER1_ISR
-00308cb7   _USER2_ISR
-00308cc1   _USER3_ISR
-00308ccb   _USER4_ISR
-00308cd5   _USER5_ISR
-00308cdf   _USER6_ISR
-00308ce9   _USER7_ISR
-00308cf3   _USER8_ISR
-00308cfd   _USER9_ISR
-00308d07   _USER10_ISR
-00308d11   _USER11_ISR
-00308d1b   _USER12_ISR
-00308d25   _SEQ1INT_ISR
-00308d2f   _SEQ2INT_ISR
-00308d39   _XINT1_ISR
-00308d43   _XINT2_ISR
-00308d4d   _ADCINT_ISR
-00308d57   _TINT0_ISR
-00308d61   _WAKEINT_ISR
-00308d6b   _EPWM1_TZINT_ISR
-00308d75   _EPWM2_TZINT_ISR
-00308d7f   _EPWM3_TZINT_ISR
-00308d89   _EPWM4_TZINT_ISR
-00308d93   _EPWM5_TZINT_ISR
-00308d9d   _EPWM6_TZINT_ISR
-00308da7   _EPWM1_INT_ISR
-00308db1   _EPWM2_INT_ISR
-00308dbb   _EPWM3_INT_ISR
-00308dc5   _EPWM4_INT_ISR
-00308dcf   _EPWM5_INT_ISR
-00308dd9   _EPWM6_INT_ISR
-00308de3   _ECAP1_INT_ISR
-00308ded   _ECAP2_INT_ISR
-00308df7   _ECAP3_INT_ISR
-00308e01   _ECAP4_INT_ISR
-00308e0b   _ECAP5_INT_ISR
-00308e15   _ECAP6_INT_ISR
-00308e1f   _EQEP1_INT_ISR
-00308e29   _EQEP2_INT_ISR
-00308e33   _SPIRXINTA_ISR
-00308e3d   _SPITXINTA_ISR
-00308e47   _MRINTB_ISR
-00308e51   _MXINTB_ISR
-00308e5b   _MRINTA_ISR
-00308e65   _MXINTA_ISR
-00308e6f   _DINTCH1_ISR
-00308e79   _DINTCH2_ISR
-00308e83   _DINTCH3_ISR
-00308e8d   _DINTCH4_ISR
-00308e97   _DINTCH5_ISR
-00308ea1   _DINTCH6_ISR
-00308eab   _I2CINT1A_ISR
-00308eb5   _I2CINT2A_ISR
-00308ebf   _SCIRXINTC_ISR
-00308ec9   _SCITXINTC_ISR
-00308ed3   _SCIRXINTA_ISR
-00308edd   _SCITXINTA_ISR
-00308ee7   _SCIRXINTB_ISR
-00308ef1   _SCITXINTB_ISR
-00308efb   _ECAN0INTA_ISR
-00308f05   _ECAN1INTA_ISR
-00308f0f   _ECAN0INTB_ISR
-00308f19   _ECAN1INTB_ISR
-00308f23   _XINT3_ISR
-00308f2d   _XINT4_ISR
-00308f37   _XINT5_ISR
-00308f41   _XINT6_ISR
-00308f4b   _XINT7_ISR
-00308f55   _LVF_ISR
-00308f5f   _LUF_ISR
-00308f69   _PIE_RESERVED
-00308f73   _rsvd_ISR
-00308f7d   _key_check
-00308fb2   _key_process
-00308fe2   _cont_key_process
-00308fef   _eeprom_key_process
-00309097   _can_key_process
-003090e7   _cana_rx_data_update
-0030913a   _canb_rx_data_update
-0030918d   _Init_External_Interrupt
-003091cf   _main
-00309267   _InitECan
-0030926c   _InitECana
-003092ea   _InitECanb
-00309368   _InitECanGpio
-0030936d   _InitECanaGpio
-00309383   _InitECanbGpio
-00309397   _InitSysCtrl
-003093a0   _ServiceDog
-003093aa   _DisableDog
-003093b2   _InitPll
-00309400   _InitPeripheralClocks
-0030945b   _CsmUnlock
-0030948c   _SendDataToECanA
-003094b6   _SendDataToECanB
-003094e0   _init_can
-00309552   _scib_putc
-00309582   _scib_puts
-003095ba   _SD_GetChar
-003095cf   _SD_CharReceived
-003095d7   _scib_init
-0030960e   _ABIC_AutoBaud
-00309625   _ABIC_NormalMode
-00309644   _ABIC_ReadOutData
-00309675   _ABIC_WriteInData
-003096a8   _Init_I2C_eeprom
-003096d1   _Write_EEPROM_Data
-003096fe   _Read_EEPROM_Data
-00309736   _TM_StartTimer
-0030973a   _TM_TimeOut
-00309743   _MB_SendRecModbusMessage
-003097bf   _InitCpuTimers
-003097fe   _ConfigCpuTimer
-00309839   _usb_putc
-0030984b   _usb_puts
-00309863   _scic_usb_init
-0030989c   _Init_Spi_Dac
-003098d2   _DAC_Out
-003098ff   _c_int00
-00309945   _Init_Adc_Mode
-0030997d   _InitPieCtrl
-0030999c   _EnableInterrupts
-003099a5   _GenerateCrc
-003099cb   _InitPieVectTable
-003099eb   __args_main
-00309a06   C$$EXIT
-00309a06   _abort
-00309a08   _exit
-00309a1f   _MemCopy
-00309a36   U$$DIV
-00309a3b   U$$MOD
-00309a41   __register_unlock
-00309a45   __register_lock
-00309a49   __nop
-00309a52   _memset
-00309a59   ___etext__
-00309a59   etext
-00309a5a   _PieVectTableInit
-00309b5a   _abCrcHi
-00309c5a   _abCrcLo
-00309d9a   ___cinit__
-00309d9a   cinit
+00308c67   _key_check
+00308c9c   _key_process
+00308ccc   _cont_key_process
+00308cd9   _eeprom_key_process
+00308d81   _can_key_process
+00308dd1   _cana_rx_data_update
+00308e24   _canb_rx_data_update
+00308e77   _Init_External_Interrupt
+00308eb9   _main
+00308fb0   _INT13_ISR
+00308fba   _INT14_ISR
+00308fc4   _DATALOG_ISR
+00308fce   _RTOSINT_ISR
+00308fd8   _EMUINT_ISR
+00308fe2   _NMI_ISR
+00308fec   _ILLEGAL_ISR
+00308ff6   _USER1_ISR
+00309000   _USER2_ISR
+0030900a   _USER3_ISR
+00309014   _USER4_ISR
+0030901e   _USER5_ISR
+00309028   _USER6_ISR
+00309032   _USER7_ISR
+0030903c   _USER8_ISR
+00309046   _USER9_ISR
+00309050   _USER10_ISR
+0030905a   _USER11_ISR
+00309064   _USER12_ISR
+0030906e   _SEQ1INT_ISR
+00309078   _SEQ2INT_ISR
+00309082   _XINT1_ISR
+0030908c   _XINT2_ISR
+00309096   _ADCINT_ISR
+003090a0   _TINT0_ISR
+003090aa   _WAKEINT_ISR
+003090b4   _EPWM1_TZINT_ISR
+003090be   _EPWM2_TZINT_ISR
+003090c8   _EPWM3_TZINT_ISR
+003090d2   _EPWM4_TZINT_ISR
+003090dc   _EPWM5_TZINT_ISR
+003090e6   _EPWM6_TZINT_ISR
+003090f0   _EPWM1_INT_ISR
+003090fa   _EPWM2_INT_ISR
+00309104   _EPWM3_INT_ISR
+0030910e   _EPWM4_INT_ISR
+00309118   _EPWM5_INT_ISR
+00309122   _EPWM6_INT_ISR
+0030912c   _ECAP1_INT_ISR
+00309136   _ECAP2_INT_ISR
+00309140   _ECAP3_INT_ISR
+0030914a   _ECAP4_INT_ISR
+00309154   _ECAP5_INT_ISR
+0030915e   _ECAP6_INT_ISR
+00309168   _EQEP1_INT_ISR
+00309172   _EQEP2_INT_ISR
+0030917c   _SPIRXINTA_ISR
+00309186   _SPITXINTA_ISR
+00309190   _MRINTB_ISR
+0030919a   _MXINTB_ISR
+003091a4   _MRINTA_ISR
+003091ae   _MXINTA_ISR
+003091b8   _DINTCH1_ISR
+003091c2   _DINTCH2_ISR
+003091cc   _DINTCH3_ISR
+003091d6   _DINTCH4_ISR
+003091e0   _DINTCH5_ISR
+003091ea   _DINTCH6_ISR
+003091f4   _I2CINT1A_ISR
+003091fe   _I2CINT2A_ISR
+00309208   _SCIRXINTC_ISR
+00309212   _SCITXINTC_ISR
+0030921c   _SCIRXINTA_ISR
+00309226   _SCITXINTA_ISR
+00309230   _SCIRXINTB_ISR
+0030923a   _SCITXINTB_ISR
+00309244   _ECAN0INTA_ISR
+0030924e   _ECAN1INTA_ISR
+00309258   _ECAN0INTB_ISR
+00309262   _ECAN1INTB_ISR
+0030926c   _XINT3_ISR
+00309276   _XINT4_ISR
+00309280   _XINT5_ISR
+0030928a   _XINT6_ISR
+00309294   _XINT7_ISR
+0030929e   _LVF_ISR
+003092a8   _LUF_ISR
+003092b2   _PIE_RESERVED
+003092bc   _rsvd_ISR
+003092c6   _InitECan
+003092cb   _InitECana
+00309349   _InitECanb
+003093c7   _InitECanGpio
+003093cc   _InitECanaGpio
+003093e2   _InitECanbGpio
+003093f6   _InitSysCtrl
+003093ff   _ServiceDog
+00309409   _DisableDog
+00309411   _InitPll
+0030945f   _InitPeripheralClocks
+003094ba   _CsmUnlock
+003094eb   _SendDataToECanA
+00309515   _SendDataToECanB
+0030953f   _init_can
+003095b1   _scib_putc
+003095e1   _scib_puts
+00309619   _SD_GetChar
+0030962e   _SD_CharReceived
+00309636   _scib_init
+0030966d   _ABIC_AutoBaud
+00309684   _ABIC_NormalMode
+003096a3   _ABIC_ReadOutData
+003096d5   _ABIC_WriteInData
+00309707   _Init_I2C_eeprom
+00309730   _Write_EEPROM_Data
+0030975d   _Read_EEPROM_Data
+00309795   _TM_StartTimer
+00309799   _TM_TimeOut
+003097a2   _MB_SendRecModbusMessage
+0030981e   _InitCpuTimers
+0030985d   _ConfigCpuTimer
+00309898   _usb_putc
+003098aa   _usb_puts
+003098c2   _scic_usb_init
+003098fb   _Init_Spi_Dac
+00309931   _DAC_Out
+0030995e   _c_int00
+003099a4   _Init_Adc_Mode
+003099dc   _InitPieCtrl
+003099fb   _EnableInterrupts
+00309a04   _GenerateCrc
+00309a2a   _InitPieVectTable
+00309a4a   __args_main
+00309a65   C$$EXIT
+00309a65   _abort
+00309a67   _exit
+00309a7e   _MemCopy
+00309a95   U$$DIV
+00309a9a   U$$MOD
+00309aa0   __register_unlock
+00309aa4   __register_lock
+00309aa8   __nop
+00309ab1   _memset
+00309ab8   _PieVectTableInit
+00309ab8   ___etext__
+00309ab8   etext
+00309bb8   _abCrcHi
+00309cb8   _abCrcLo
+00309e38   ___cinit__
+00309e38   cinit
 0033fff6   code_start
 0033fff8   _CsmPwl
 00380080   _ADC_cal
@@ -1103,4 +1098,4 @@ ffffffff   ___pinit__
 ffffffff   binit
 ffffffff   pinit
 
-[351 symbols]
+[348 symbols]

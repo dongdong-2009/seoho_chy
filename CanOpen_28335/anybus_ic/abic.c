@@ -187,7 +187,7 @@ BOOL ABIC_ReadOutData( UCHAR bOffset, UCHAR bSize, UCHAR* pData )
 
    abRequest[ 0 ] = 0x01;           /* Modbus Address           */
    abRequest[ 1 ] = 0x04;           /* Modbus Function Code     */
-   abRequest[ 2 ] = 0x00;           /* Modbus Address High Byte */
+   abRequest[ 2 ] = 0x10;           /* Modbus Address High Byte */
    abRequest[ 3 ] = bOffset;        /* Modbus Address Low Byte  */
    //abRequest[ 2 ] = 0x50;           /* Modbus Address High Byte */
    //abRequest[ 3 ] = 0x01;        /* Modbus Address Low Byte  */
@@ -244,7 +244,7 @@ BOOL ABIC_WriteInData( UCHAR bOffset, UCHAR bSize, UCHAR* pData )
 
    abRequest[ 0 ] = 0x01;           /* Modbus Address           */
    abRequest[ 1 ] = 0x10;           /* Modbus Function Code     */
-   abRequest[ 2 ] = 0x10;           /* Starting Address High    */
+   abRequest[ 2 ] = 0x00;           /* Starting Address High    */
    abRequest[ 3 ] = bOffset;        /* Starting Address Low     */
    abRequest[ 4 ] = 0x00;           /* No. of Registers High    */
    abRequest[ 5 ] = bSize;          /* No. of Registers Low     */
