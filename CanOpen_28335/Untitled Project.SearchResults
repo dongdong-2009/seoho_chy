@@ -1,5 +1,7 @@
----- cpu_timer0_isr Matches (4 in 1 files) ----
-Ex08_can_f.c:#pragma CODE_SECTION(cpu_timer0_isr, "ramfuncs");
-Ex08_can_f.c:interrupt void cpu_timer0_isr(void);
-Ex08_can_f.c:	PieVectTable.TINT0 = &cpu_timer0_isr;
-Ex08_can_f.c:interrupt void cpu_timer0_isr(void){
+---- MB_iTimeOutTime Matches (6 in 3 files) ----
+Ex08_can_f.c:	MB_iTimeOutTime++;
+Mb.c (anybus_ic):UINT16 MB_iTimeOutTime;
+Mb.c (anybus_ic):   MB_iTimeOutTime = 0;
+Mb.c (anybus_ic):	if( MB_DEFAULT_TIMEOUT < MB_iTimeOutTime )	return( TRUE );
+Mb.h (anybus_ic):** MB_iTimeOutTime
+Mb.h (anybus_ic):extern UINT16 MB_iTimeOutTime;

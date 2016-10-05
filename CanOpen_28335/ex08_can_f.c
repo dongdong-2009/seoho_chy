@@ -37,6 +37,9 @@
 #include "DSK2833x_Define.h"
 #include ".\anybus_ic\mb.h"
 
+#define Buf_MAX 16
+WORD Data_Registers[Buf_MAX];//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!11111
+
 WORD m_cnt=0;
 WORD t_cnt0=0, t_cnt1=0, t_cnt2=0; // CPU Timer0/1/2 counter
 BYTE led_data=0;	// 외부 버스 CS0에 연결된 Digital Output 8개(8개 LED)에 출력할 값 
@@ -365,12 +368,15 @@ void Init_External_Interrupt(void){
 	PieCtrlRegs.PIEIER12.bit.INTx4 = 1;	// Enable XINT6 in the PIE: Group 12 interrupt 4
 }
 
+
+
+   unsigned char abInData[ 2 ];
+   unsigned char abOutData[ 2 ];
+unsigned int step=0;
 void main(void)
 {
 
    BOOL fResult;
-   unsigned char abInData[ 2 ];
-   unsigned char abOutData[ 2 ];
 
 	
 	// Step 1. Initialize System Control:
@@ -421,14 +427,14 @@ void main(void)
 	
 	// Call Flash Initialization to setup flash waitstates
 	// This function must reside in RAM
-	InitFlash();
+	//InitFlash();
 	//-----------------------------------------------------------------------------
 	
 	// Step 4. Initialize the Device Peripheral.
 	// refer to DSK2833x_GlobalFunc.c file and
 	Init_Ext_Bus();		// Initalize External Interface according to RealSYS DSP28335 DSK
-	Set_LED_Data(0xff);	// Turn off all LEDs(CS0에 할당된 Digital Output 포트에 연결된 LED)
-	init_lcd();			// Initialize LCD and Clear Display
+	//Set_LED_Data(0xff);	// Turn off all LEDs(CS0에 할당된 Digital Output 포트에 연결된 LED)
+	//init_lcd();			// Initialize LCD and Clear Display
 
 	// This function can be found in DSP2833x_CpuTimers.c
 	// For this example, only initialize the Cpu Timers
@@ -465,22 +471,22 @@ void main(void)
 	Init_External_Interrupt();
 	
 	// Initialize I2C for access serial eeprom(AT24C16)
-	Init_I2C_eeprom();
+	//Init_I2C_eeprom();
 	
 	// Initailze SPI-A for 2ch 12bit DAC(MCP4822)
-	Init_Spi_Dac();
+	//Init_Spi_Dac();
 	
 	// Initialize ADC operation mode
-	Init_Adc_Mode();
+	//Init_Adc_Mode();
 	
 	// Initialize SCI-B for echo-back testing
 	scib_init();
 	
 	// Initialize SCI-C for usb echo-back testing
-	scic_usb_init();
+	//scic_usb_init();
 
 	// Initialize CAN-A/B
-	init_can();
+	//init_can();
 	
 	// Enables the PIE module and CPU interrupts and global Interrupt INTM
 	// refer to DSP2833x_PieCtrl.c file
@@ -491,7 +497,30 @@ void main(void)
 	
 	lcd_gotoxy(0, 0);
 	lcd_puts("CanOpen 28335");
+
+
+
+ABIC_AutoBaud();
+ABIC_NormalMode();
+
+
+
+	abInData[0]=0x00;
+	abInData[1]=0x00;
+while(1)
+{
+	abInData[0]=(unsigned char)(Data_Registers[step]>>8);
+	abInData[1]=(unsigned char)(Data_Registers[step] & 0x00FF );
+	ABIC_ReadOutData( step, 1, abInData );
 	
+	ABIC_WriteInData( step, 1, abInData );
+	Data_Registers[step+8]=((unsigned int)abInData[0]<<8) + (unsigned int)abInData[1];
+
+	step++;
+	if(7<step)step=0;
+
+
+#if 0	
 	while(TRUE){
 		m_cnt++;
 		dac0_data += 2;
@@ -504,6 +533,8 @@ void main(void)
 		DAC_Out(dac0_data, dac1_data);
 		
 		//if(key_code & KEY_PRESSED) can_key_process();
+
+
 
 //scib_putc(0x55 );
 		
@@ -559,13 +590,13 @@ void main(void)
 					      /*
 				      ** Get indata values from the CPU AD converter
 				      */
-				      //abInData[ 0 ] = 0xAB;
-				    //  abInData[ 1 ] = 0xCD;
+				      abInData[ 0 ] = 0xAB;
+				      abInData[ 1 ] = 0xCD;
 
 				      /*
 				      ** Write the In Data values to the AnyBus-IC
 				      */
-				     // ABIC_WriteInData( 0, 1, abInData );
+				      ABIC_WriteInData( 0, 1, abInData );
 
 					   TM_StartTimer();
 					   while( !TM_TimeOut() );
@@ -577,13 +608,6 @@ void main(void)
 				      ** Read the Out Data values from the AnyBus-IC
 				      */
 				      fResult = ABIC_ReadOutData( 0, 1, abOutData );
-
-					     ABIC_WriteInData( 0, 1, abOutData );
-
-					   TM_StartTimer();
-					   while( !TM_TimeOut() );
-					   TM_StartTimer();
-					   while( !TM_TimeOut() );
 
 				      if( fResult )
 				      {
@@ -624,10 +648,11 @@ void main(void)
 
 		}
 		
-		
+ #endif		
 		//if(cana_rx_flag) cana_rx_data_update();
 		//if(canb_rx_flag) canb_rx_data_update();
 	}
+
 }
 
 
