@@ -1,0 +1,91 @@
+; Code Composer Project File, Version 2.0 (do not modify or remove this line)
+
+[Project Settings]
+ProjectDir="D:\work\SEOHO_VD\Seoho_VD_Drive_Program(101122_28bit)ssi\"
+ProjectType=Executable
+CPUFamily=TMS320C28XX
+Tool="Compiler"
+Tool="CustomBuilder"
+Tool="DspBiosBuilder"
+Tool="Linker"
+Config="Debug"
+Config="Release"
+
+[Source Files]
+Source="include\Seoho include\DEV_EasydspDac28335.h"
+Source="lib\IQmath.lib"
+Source="lib\IQmath_fpu32.lib"
+Source="lib\rts2800_fpu32.lib"
+Source="lib\rts2800_fpu32_fast_supplement.lib"
+Source="source\anybus_ic\abic.c"
+Source="source\anybus_ic\crc.c"
+Source="source\anybus_ic\mb.c"
+Source="source\anybus_ic\SCI_B.c"
+Source="source\Seoho Source\All_Interrupt.c"
+Source="source\Seoho Source\All_Main.c"
+Source="source\Seoho Source\Core_ADC_DAC.c"
+Source="source\Seoho Source\Core_Auto_Tuning.c"
+Source="source\Seoho Source\Core_Common_Module.c"
+Source="source\Seoho Source\Core_Gpio_Xintf_Set.c"
+Source="source\Seoho Source\Core_RealSys_2833x.c"
+Source="source\Seoho Source\Core_Speed_Calc.c"
+Source="source\Seoho Source\Core_Vector_Control.c"
+Source="source\Seoho Source\DEV_EasydspDac28335.c"
+Source="source\Seoho Source\Seoho_DSP2833x_Xintf.c"
+Source="source\Seoho Source\Shell_ABS_Encoder.c"
+Source="source\Seoho Source\Shell_Fault_Processing.c"
+Source="source\Seoho Source\Shell_IO.c"
+Source="source\Seoho Source\Shell_Keypad.c"
+Source="source\Seoho Source\Shell_Keypad_SCI.c"
+Source="source\Seoho Source\Shell_Ref_Func.c"
+Source="source\Seoho Source\Shell_State_Management.c"
+Source="source\TI Source\Core_DSP2833x_ADC_cal.asm"
+Source="source\TI Source\Core_DSP2833x_CodeStartBranch.asm"
+Source="source\TI Source\Core_DSP2833x_CpuTimers.c"
+Source="source\TI Source\Core_DSP2833x_DefaultIsr.c"
+Source="source\TI Source\Core_DSP2833x_GlobalVariableDefs.c"
+Source="source\TI Source\Core_DSP2833x_MemCopy.c"
+Source="source\TI Source\Core_DSP2833x_PieCtrl.c"
+Source="source\TI Source\Core_DSP2833x_PieVect.c"
+Source="source\TI Source\Core_DSP2833x_SysCtrl.c"
+Source="source\TI Source\Core_DSP2833x_usDelay.asm"
+Source="source\TI Source\Shell_DSP2833x_Mcbsp.c"
+Source="cmd\DSP2833x_Headers_nonBIOS.cmd"
+Source="cmd\Soho28335_RAM_lnk.cmd"
+
+["Compiler" Settings: "Debug"]
+Options=-gt -pdsw225 -fr"$(Proj_dir)\Debug" -i"$(Proj_dir)\lib" -i"$(Proj_dir)\include\Seoho include" -i"$(Proj_dir)\include\TI include" -i"$(Proj_dir)\source\anybus_ic" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32
+
+["Compiler" Settings: "Release"]
+Options=-pdsw225 -o3 -fr"$(Proj_dir)\Release" -d"LARGE_MODEL" -ml -v28
+
+["Linker" Settings: "Debug"]
+Options=-c -m".\Debug\Seoho VD Drive Program.map" -o".\Debug\Seoho VD Drive Program.out" -stack0x400 -w -x
+
+["Linker" Settings: "Release"]
+Options=-c -m".\Release\Seoho VD Drive Program.map" -o".\Release\Seoho VD Drive Program.out" -w -x
+
+["include\Seoho include\DEV_EasydspDac28335.h" Settings: "Debug"]
+ExcludeFromBuild=true
+
+["include\Seoho include\DEV_EasydspDac28335.h" Settings: "Release"]
+ExcludeFromBuild=true
+
+["lib\rts2800_fpu32.lib" Settings: "Debug"]
+LinkOrder=4
+
+["lib\rts2800_fpu32_fast_supplement.lib" Settings: "Debug"]
+LinkOrder=3
+
+["cmd\DSP2833x_Headers_nonBIOS.cmd" Settings: "Debug"]
+LinkOrder=1
+
+["cmd\DSP2833x_Headers_nonBIOS.cmd" Settings: "Release"]
+LinkOrder=1
+
+["cmd\Soho28335_RAM_lnk.cmd" Settings: "Debug"]
+LinkOrder=2
+
+["cmd\Soho28335_RAM_lnk.cmd" Settings: "Release"]
+LinkOrder=1
+
