@@ -91,7 +91,7 @@ void F28335PowerOnSet()
 	test_led1_off();
 //	InitMcbspaGpio();	
 	dev_DacSetup ();                  // chy 2010.11.17   DAC 
-    dev_InitDACVariable();            // chy 2010.11.17   DAC
+	dev_InitDACVariable();            // chy 2010.11.17   DAC
 	InitMcbspa();
 
 	// FLASH Code Copy and 초기화 루틴 --------------------------------------------

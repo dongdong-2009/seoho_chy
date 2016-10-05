@@ -276,7 +276,8 @@ void scib_init(){
 	GpioCtrlRegs.GPAMUX1.bit.GPIO11 = 2;   // Configure GPIO11 for SCIRXDB operation
 	GpioCtrlRegs.GPAMUX1.bit.GPIO9 = 2;    // Configure GPIO9 for SCITXDB operation
 #endif
-
+//========================================================================================
+//========================================================================================
     /* Enable internal pull-up for the selected pins */
 	GpioCtrlRegs.GPAPUD.bit.GPIO19 = 0; // Enable pull-up for GPIO19 (SCIRXDB)
 	GpioCtrlRegs.GPAPUD.bit.GPIO18 = 0;  // Enable pull-up for GPIO18  (SCITXDB)
@@ -288,7 +289,8 @@ void scib_init(){
 	GpioCtrlRegs.GPAMUX2.bit.GPIO19 = 2;   // Configure GPIO19 for SCIRXDB operation
 	GpioCtrlRegs.GPAMUX2.bit.GPIO18 = 2;    // Configure GPIO18 for SCITXDB operation
 	EDIS;
-
+//========================================================================================
+//========================================================================================
     // Enable CPU INT9 for SCI-B
 	IER |= M_INT9;
 	
