@@ -1,5 +1,5 @@
----- cpu_timer0_isr Matches (4 in 1 files) ----
-Ex08_can_f.c:#pragma CODE_SECTION(cpu_timer0_isr, "ramfuncs");
-Ex08_can_f.c:interrupt void cpu_timer0_isr(void);
-Ex08_can_f.c:	PieVectTable.TINT0 = &cpu_timer0_isr;
-Ex08_can_f.c:interrupt void cpu_timer0_isr(void){
+---- sd_s.iRxGet Matches (4 in 1 files) ----
+SCI_B.c:   bReturnChar = sd_s.abRxBuffer[ sd_s.iRxGet ];
+SCI_B.c:   sd_s.iRxGet++;
+SCI_B.c:   if( sd_s.iRxGet == SD_RX_BUFFER_SIZE )
+SCI_B.c:      sd_s.iRxGet = 0;

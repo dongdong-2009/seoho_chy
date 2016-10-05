@@ -1,9 +1,10 @@
 ---------------------------  ex08_can_f.pjt - Debug  ---------------------------
-[ex08_can_f.c] "C:\CCStudio_v3.3\C2000\cgtools\bin\cl2000" -gt -fr"D:/work/SEOHO_VD/CanOpen_28335_100923/Debug" -i"./DSP2833x_include" -d"_DEBUG" -d"LARGE_MODEL" -ml -mt -v28 --float_support=fpu32 -@"Debug.lkf" "ex08_can_f.c"
+[ex08_can_f.c] "C:\CCStudio_v3.3\C2000\cgtools\bin\cl2000" -gt -fr"D:/work/SEOHO_VD/CanOpen_28335_110216/Debug" -i"./DSP2833x_include" -d"_DEBUG" -d"LARGE_MODEL" -ml -mt -v28 --float_support=fpu32 -@"Debug.lkf" "ex08_can_f.c"
+"ex08_can_f.c", line 373: warning: variable "fResult" was declared but never referenced
 
 [Linking...] "C:\CCStudio_v3.3\C2000\cgtools\bin\cl2000" -@"Debug.lkf"
 <Linking>
 warning: entry-point symbol other than "_c_int00" specified:  "code_start"
 
 Build Complete,
-  0 Errors, 1 Warnings, 0 Remarks.
+  0 Errors, 2 Warnings, 0 Remarks.

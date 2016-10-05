@@ -56,3 +56,6 @@ LinkOrder=1
 ["FLASH.cmd" Settings: "Release"]
 LinkOrder=1
 
+
+[Tools]
+ToolDeleteList 

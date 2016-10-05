@@ -1,7 +1,7 @@
 ; Code Composer Project File, Version 2.0 (do not modify or remove this line)
 
 [Project Settings]
-ProjectDir="C:\Users\idonno2000\Desktop\Example Source\CCS3.3\ex08_can_f\"
+ProjectDir="D:\work\SEOHO_VD\CanOpen_28335_100923\"
 ProjectType=Executable
 CPUFamily=TMS320C28XX
 Tool="Compiler"
@@ -13,6 +13,9 @@ Config="Release"
 
 [Source Files]
 Source="ADC.c"
+Source="anybus_ic\abic.c"
+Source="anybus_ic\crc.c"
+Source="anybus_ic\mb.c"
 Source="debug_2833x.c"
 Source="DSK2833x_GlobalFunc.c"
 Source="DSP2833x_source\DSP2833x_ADC_cal.asm"
